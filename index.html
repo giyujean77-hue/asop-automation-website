@@ -1,329 +1,2142 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ASOP Automation &mdash; Studio d&rsquo;Automatisation B2B</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://app.gohighlevel.com/chat-widget/script.js?locationId=QfLnqqz1mgSKcXLkKK5c" defer></script>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
---bg:#050505;--card:#121212;--card-hover:#1F2937;
---text-primary:#FFFFFF;--text-secondary:#9CA3AF;--text-muted:#64748B;
---accent:#ef4444;--accent-hover:#DC2626;
---border:rgba(255,255,255,0.05);--border-card:rgba(255,255,255,0.08);
---font:'Inter',sans-serif;
---radius-card:1rem;--radius-cta:0.75rem;--radius-btn:0.5rem;
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--bg);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-.navbar{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);background:rgba(5,5,5,0.8);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;max-width:1440px;margin:0 auto}
-.navbar-logo{display:flex;align-items:center;gap:0.5rem;font-weight:700;font-size:1.25rem;letter-spacing:-0.02em}
-.navbar-logo span{color:var(--accent)}
-.navbar-links{display:flex;gap:2rem;font-size:0.875rem;color:var(--text-secondary)}
-.navbar-links a{color:var(--text-secondary);transition:color 0.2s}
-.navbar-links a:hover{color:var(--text-primary);text-decoration:none}
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:80%;height:60%;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(239,68,68,0.12) 0%,transparent 70%);pointer-events:none}
-.hero-content{max-width:720px;position:relative;z-index:1}
-.hero-badge{display:inline-block;padding:0.375rem 1rem;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25);border-radius:9999px;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:2rem}
-.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;line-height:1.08;margin-bottom:1.5rem;letter-spacing:-0.03em}
-.hero h1 span{color:var(--accent)}
-.hero p{font-size:1.125rem;color:var(--text-secondary);max-width:560px;margin:0 auto 2.5rem;line-height:1.7}
-.btn{display:inline-block;padding:0.875rem 2rem;border-radius:var(--radius-cta);font-weight:600;font-size:0.9375rem;cursor:pointer;border:none;transition:all 0.2s;text-decoration:none;font-family:var(--font)}
-.btn-primary{background:var(--accent);color:#FFF}.btn-primary:hover{background:var(--accent-hover);translate:0 -2px;box-shadow:0 8px 24px rgba(239,68,68,0.3);text-decoration:none}
-.btn-outline{background:transparent;color:var(--text-primary);border:1px solid var(--border-card)}.btn-outline:hover{background:var(--card);text-decoration:none}
-section{padding:5rem 2rem}
-.container{max-width:1120px;margin:0 auto}
-.section-label{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);margin-bottom:1rem}
-.section-title{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;line-height:1.12;margin-bottom:1rem;letter-spacing:-0.02em}
-.section-desc{font-size:1.0625rem;color:var(--text-secondary);max-width:560px;line-height:1.7;margin-bottom:3rem}
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-.service-card{background:var(--card);border:1px solid var(--border-card);border-radius:var(--radius-card);padding:2rem;transition:all 0.3s;cursor:default}
-.service-card:hover{translate:0 -4px;border-color:rgba(239,68,68,0.3);box-shadow:0 16px 48px rgba(0,0,0,0.4)}
-.service-icon{width:48px;height:48px;border-radius:0.75rem;background:rgba(239,68,68,0.1);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.25rem}
-.service-card h3{font-size:1.125rem;font-weight:600;margin-bottom:0.75rem}
-.service-card p{font-size:0.9375rem;color:var(--text-secondary);line-height:1.6}
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-.pricing-card{background:var(--card);border:1px solid var(--border-card);border-radius:var(--radius-card);padding:2.5rem 2rem;position:relative;transition:all 0.3s}
-.pricing-card:hover{translate:0 -4px;border-color:rgba(239,68,68,0.4)}
-.pricing-card.featured{border-color:var(--accent);box-shadow:0 0 40px rgba(239,68,68,0.08)}
-.pricing-card .badge{position:absolute;top:-0.5rem;left:50%;transform:translateX(-50%);background:var(--accent);color:#FFF;font-size:0.6875rem;font-weight:700;text-transform:uppercase;padding:0.25rem 0.75rem;border-radius:9999px;letter-spacing:0.05em}
-.pricing-name{font-size:1rem;font-weight:600;color:var(--text-secondary);margin-bottom:0.5rem}
-.pricing-price{font-size:2.5rem;font-weight:700;letter-spacing:-0.02em}
-.pricing-price span{font-size:1rem;color:var(--text-muted);font-weight:400}
-.pricing-desc{font-size:0.8125rem;color:var(--text-muted);margin-bottom:1.5rem}
-.pricing-features{list-style:none;margin-bottom:2rem}
-.pricing-features li{padding:0.5rem 0;font-size:0.9375rem;color:var(--text-secondary);display:flex;align-items:center;gap:0.75rem}
-.pricing-features li::before{content:'\2713';color:var(--accent);font-weight:700}
-.form-card{background:var(--card);border:1px solid var(--border-card);border-radius:var(--radius-card);padding:2.5rem;max-width:520px;margin:0 auto}
-.form-card h3{font-size:1.25rem;font-weight:600;margin-bottom:0.5rem}
-.form-card p{font-size:0.875rem;color:var(--text-muted);margin-bottom:1.5rem}
-.form-group{margin-bottom:1.25rem}
-.form-group label{display:block;font-size:0.8125rem;font-weight:600;margin-bottom:0.375rem;color:var(--text-secondary)}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:0.75rem 1rem;background:rgba(255,255,255,0.04);border:1px solid var(--border-card);border-radius:var(--radius-btn);color:var(--text-primary);font-family:var(--font);font-size:0.9375rem;outline:none;transition:border-color 0.2s}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent)}
-.form-group input::placeholder,.form-group textarea::placeholder{color:var(--text-muted)}
-.form-group textarea{resize:vertical;min-height:80px}
-.form-error{font-size:0.75rem;color:var(--accent);margin-top:0.25rem;display:none}
-.form-success{display:none;text-align:center;padding:2rem 0}
-.form-success h4{font-size:1.125rem;margin-bottom:0.5rem}
-.form-success p{font-size:0.875rem;color:var(--text-muted)}
-.ghl-status{padding:0.5rem 1rem;border-radius:0.5rem;margin-top:1rem;font-size:0.8125rem;display:none}
-.ghl-status.success{display:block;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.3);color:#22c55e}
-.ghl-status.error{display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);color:var(--accent)}
-.btn-submit{width:100%;padding:0.875rem;background:var(--accent);color:#FFF;font-weight:600;font-size:0.9375rem;border:none;border-radius:var(--radius-btn);cursor:pointer;font-family:var(--font);transition:all 0.2s}
-.btn-submit:hover{background:var(--accent-hover);translate:0 -1px;box-shadow:0 4px 16px rgba(239,68,68,0.3)}
-.btn-submit:disabled{opacity:0.5;cursor:not-allowed;translate:none;box-shadow:none}
-.btn-submit.loading{pointer-events:none}
-.contact-section{text-align:center;padding:5rem 2rem}
-.contact-email{font-size:1.125rem;color:var(--text-secondary)}
-.contact-email span{color:var(--accent)}
-footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-size:0.8125rem;color:var(--text-muted)}
-@media(max-width:768px){
-.navbar{padding:0.75rem 1rem}
-.navbar-links{display:none}
-.hero{padding:5rem 1rem 3rem}
-section{padding:3rem 1rem}
-.pricing-grid{grid-template-columns:1fr}
-.form-card{padding:1.5rem}
-}
-@keyframes fadeUp{from{opacity:0;translate:0 20px}to{opacity:1;translate:0 0}}
-.fade-up{animation:fadeUp 0.7s ease both}
-</style>
-</head>
-<body>
+  <!--
+  ============================================================
+    ASOP AUTOMATION — Landing Page One-Pager
+    Stack: HTML5 · Tailwind CSS (CDN) · Chart.js (CDN) · FontAwesome (CDN) · Vanilla JS
+    Étape 1: Boilerplate + Navbar + Hero Section
+  ============================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asop-Automation — Studio d'Automatisation B2B</title>
+  <meta name="description" content="Réception vocale, capture de leads omnicanale et logiciels internes sur-mesure : nous automatisons les tâches qui vous font perdre du temps et de l'argent." />
 
-<nav class="navbar" role="navigation" aria-label="Navigation principale">
-<div class="navbar-logo"><span>A</span>sop Automation</div>
-<div class="navbar-links">
-<a href="#services">Services</a>
-<a href="#pricing">Tarifs</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
+  <!-- ── CDN Imports ─────────────────────────────────────── -->
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" integrity="sha384-j2sSiemvbBCATNlIt42I6p3U2TB7pL5un91S4X3vQuT5N2I/BFt3iRzBwJ2m4LwG" crossorigin="anonymous"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" />
+  <!-- Google Fonts: Syne (Display) + DM Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
 
-<section class="hero" id="hero">
-<div class="hero-content fade-up">
-<div class="hero-badge">Studio d&rsquo;Automatisation B2B</div>
-<h1>On automatise ce qui vous fait perdre du <span>temps</span> et de l&rsquo;<span>argent</span>.</h1>
-<p>Agents vocaux IA, chatbots omnicanal et SaaS d&rsquo;automatisation. Des solutions qui travaillent 24/7 pour votre business.</p>
-<a href="#contact" class="btn btn-primary">Commencer maintenant</a>
-</div>
-</section>
+  <!-- ── Tailwind Config ─────────────────────────────────── -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            display: ['Inter', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            /* Design System */
+            brand: {
+              bg: '#050505',
+              card: '#121212',
+              text: '#9CA3AF',
+              accent: '#ef4444'
+            },
+            slate:   { 950: '#050505', 900: '#121212', 800: '#1F2937', 700: '#374151' },
+            electric: { 500: '#ef4444', 400: '#ef4444' },
+            emerald: { 400: '#ef4444', 500: '#ef4444' },
+            coral:   { 500: '#ef4444', 400: '#ef4444' },
+            indigo:  { 500: '#ef4444', 400: '#ef4444' },
+            fuchsia: { 500: '#ef4444', 400: '#ef4444' },
+            amber:   { 600: '#ef4444', 500: '#ef4444', 400: '#ef4444' },
+            orange:  { 600: '#ef4444', 500: '#ef4444', 400: '#ef4444' },
+            blue:    { 500: '#ef4444', 400: '#ef4444' },
+            yellow:  { 400: '#ef4444' },
+            purple:  { 500: '#ef4444', 400: '#ef4444' },
+            red:     { 500: '#ef4444', 400: '#ef4444' }
+          },
+          backgroundImage: {
+            'hero-mesh': 'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(239,68,68,0.15) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 80% 50%, rgba(239,68,68,0.08) 0%, transparent 60%)',
+            'card-glow':  'radial-gradient(ellipse 70% 70% at 50% 0%, rgba(239,68,68,0.06) 0%, transparent 70%)',
+          },
+          keyframes: {
+            fadeUp:  { '0%': { opacity: '0', transform: 'translateY(24px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            pulse2:  { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.4' } },
+            shimmer: { '0%': { backgroundPosition: '200% center' }, '100%': { backgroundPosition: '-200% center' } },
+            blink:   { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0' } },
+            spinSlow: { '0%': { transform: 'rotate(0deg)' }, '100%': { transform: 'rotate(360deg)' } }
+          },
+          animation: {
+            'fade-up':      'fadeUp 0.7s ease forwards',
+            'fade-up-200':  'fadeUp 0.7s 0.2s ease forwards',
+            'fade-up-400':  'fadeUp 0.7s 0.4s ease forwards',
+            'fade-up-600':  'fadeUp 0.7s 0.6s ease forwards',
+            'pulse-soft':   'pulse2 2.5s ease-in-out infinite',
+            'shimmer-text': 'shimmer 3s linear infinite',
+            'blink':        'blink 1s step-end infinite',
+            'spin-slow':    'spinSlow 12s linear infinite',
+          },
+        },
+      },
+    };
+  </script>
 
-<section id="services">
-<div class="container">
-<div class="section-label fade-up">Nos Services</div>
-<h2 class="section-title fade-up">Trois leviers pour transformer votre business</h2>
-<p class="section-desc fade-up">Chaque solution est construite sur mesure pour votre activit&eacute;, avec des r&eacute;sultats mesurables d&egrave;s les premi&egrave;res semaines.</p>
-<div class="services-grid">
-<div class="service-card fade-up">
-<div class="service-icon">&#x1F399;&#xFE0F;</div>
-<h3>R&eacute;ception Vocale IA</h3>
-<p>Agent vocal 24/7 qui r&eacute;pond aux appels, qualifie les leads, prend des rendez-vous et transf&egrave;re aux bons interlocuteurs. Disponible en fran&ccedil;ais, anglais et arabe.</p>
-</div>
-<div class="service-card fade-up">
-<div class="service-icon">&#x1F4AC;</div>
-<h3>Chatbots Omnicanal</h3>
-<p>Assistant conversationnel intelligent sur web, WhatsApp, Messenger et Instagram. Qualifie, engage et convertit 24h/24 sans intervention humaine.</p>
-</div>
-<div class="service-card fade-up">
-<div class="service-icon">&#x2699;&#xFE0F;</div>
-<h3>SaaS d&rsquo;Automatisation</h3>
-<p>Plateformes sur mesure pour vos workflows internes. Int&eacute;grations ERP, CRM, outils m&eacute;tier &mdash; tout est automatis&eacute; et centralis&eacute; en un seul endroit.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section id="pricing">
-<div class="container">
-<div class="section-label fade-up">Tarifs</div>
-<h2 class="section-title fade-up">Un investissement, pas un co&ucirc;t</h2>
-<p class="section-desc fade-up">Chaque package inclut l&rsquo;installation, l&rsquo;h&eacute;bergement et le support. Pas de surprise, pas de frais cach&eacute;s.</p>
-<div class="pricing-grid">
-<div class="pricing-card fade-up">
-<div class="pricing-name">Essentiel</div>
-<div class="pricing-price">97<span>&euro;/mois</span></div>
-<div class="pricing-desc">CRM + pipeline + formulaires + email automatisation</div>
-<ul class="pricing-features">
-<li>CRM &amp; pipeline de vente</li>
-<li>Formulaires de capture leads</li>
-<li>Email &amp; SMS automatisation</li>
-<li>Calendrier de rendez-vous</li>
-<li>Chatbot conversationnel de base</li>
-<li>Support standard</li>
-</ul>
-<a href="#contact" class="btn btn-outline" style="display:block;text-align:center">Commencer</a>
-</div>
-<div class="pricing-card featured fade-up">
-<div class="badge">Le plus populaire</div>
-<div class="pricing-name">Professionnel</div>
-<div class="pricing-price">297<span>&euro;/mois</span></div>
-<div class="pricing-desc">CRM + AI Agents + automations avanc&eacute;es + support prioritaire</div>
-<ul class="pricing-features">
-<li>Tout l&rsquo;Essentiel</li>
-<li>AI Agents conversationnels</li>
-<li>Workflows automatis&eacute;s avanc&eacute;s</li>
-<li>Lead scoring &amp; qualification IA</li>
-<li>Int&eacute;grations personnalis&eacute;es</li>
-<li>Rapport mensuel d&eacute;di&eacute;</li>
-<li>Support prioritaire 24/7</li>
-</ul>
-<a href="#contact" class="btn btn-primary" style="display:block;text-align:center">Commencer</a>
-</div>
-<div class="pricing-card fade-up">
-<div class="pricing-name">Premium</div>
-<div class="pricing-price">497<span>&euro;/mois</span></div>
-<div class="pricing-desc">Solution compl&egrave;te + AI Voice + reporting white-label + onboarding d&eacute;di&eacute;</div>
-<ul class="pricing-features">
-<li>Tout le Professionnel</li>
-<li>AI Voice Agent (r&eacute;ception t&eacute;l&eacute;phonique IA)</li>
-<li>Reporting white-label personnalis&eacute;</li>
-<li>Onboarding &amp; migration inclus</li>
-<li>Sous-domaines et marque blanche</li>
-<li>Analytics avanc&eacute;s + transcriptions</li>
-<li>Gestion de compte d&eacute;di&eacute;e</li>
-</ul>
-<a href="#contact" class="btn btn-outline" style="display:block;text-align:center">Commencer</a>
-</div>
-</div>
-</div>
-</section>
-
-<section id="contact" class="contact-section">
-<div class="container">
-<div class="section-label fade-up">Contact</div>
-<h2 class="section-title fade-up">Pr&ecirc;t &agrave; automatiser votre business ?</h2>
-<p class="section-desc fade-up">Remplissez le formulaire et nous vous r&eacute;pondons sous 24h. Ou &eacute;crivez-nous directement &agrave; <a href="mailto:contact@asop-automation.com" class="contact-email">contact<span>@asop-automation.com</span></a></p>
-
-<div class="form-card fade-up" id="leadForm">
-<h3>Demander une d&eacute;mo</h3>
-<p>Un de nos experts vous contacte sous 24h.</p>
-<form id="leadFormElement" novalidate>
-<div class="form-group">
-<label for="f_name">Nom *</label>
-<input type="text" id="f_name" name="firstName" placeholder="Votre nom" required>
-<div class="form-error" id="err_name">Le nom est requis.</div>
-</div>
-<div class="form-group">
-<label for="f_email">Email *</label>
-<input type="email" id="f_email" name="email" placeholder="votre@entreprise.com" required>
-<div class="form-error" id="err_email">Un email valide est requis.</div>
-</div>
-<div class="form-group">
-<label for="f_phone">T&eacute;l&eacute;phone</label>
-<input type="tel" id="f_phone" name="phone" placeholder="+33 6 XX XX XX XX">
-</div>
-<div class="form-group">
-<label for="f_service">Service int&eacute;ress&eacute;</label>
-<select id="f_service" name="service">
-<option value="">S&eacute;lectionnez un service</option>
-<option value="Agents Vocaux IA">Agents Vocaux IA</option>
-<option value="Chatbots Omnicanal">Chatbots Omnicanal</option>
-<option value="SaaS d'Automatisation">SaaS d&rsquo;Automatisation</option>
-<option value="Autre">Autre</option>
-</select>
-</div>
-<div class="form-group">
-<label for="f_message">Message</label>
-<textarea id="f_message" name="message" placeholder="D&eacute;crivez votre besoin..."></textarea>
-</div>
-<button type="submit" class="btn-submit" id="submitBtn">Envoyer la demande</button>
-<div class="ghl-status" id="ghlStatus"></div>
-</form>
-<div class="form-success" id="formSuccess">
-<h4>&#x2705; Demande re&ccedil;ue !</h4>
-<p>Nous vous contactons sous 24h. Merci pour votre int&eacute;r&ecirc;t.</p>
-</div>
-</div>
-</div>
-</section>
-
-<footer>
-<p>&copy; 2026 ASOP Automation &mdash; Studio d&rsquo;Automatisation B2B. Tous droits r&eacute;serv&eacute;s.</p>
-<p style="margin-top:0.25rem">contact@asop-automation.com</p>
-</footer>
-
-<script>
-(function() {
-  const form = document.getElementById('leadFormElement');
-  const statusEl = document.getElementById('ghlStatus');
-  const successEl = document.getElementById('formSuccess');
-  const submitBtn = document.getElementById('submitBtn');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    let valid = true;
-    const nameInput = document.getElementById('f_name');
-    const emailInput = document.getElementById('f_email');
-    const errName = document.getElementById('err_name');
-    const errEmail = document.getElementById('err_email');
-
-    errName.style.display = 'none';
-    errEmail.style.display = 'none';
-
-    if (!nameInput.value.trim()) { errName.style.display = 'block'; valid = false; }
-    if (!emailInput.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
-      errEmail.style.display = 'block'; valid = false;
+  <!-- ── Global Styles ───────────────────────────────────── -->
+  <style>
+    /* Base */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: transparent;
+      color: #E2E8F0;
+      overflow-x: hidden;
     }
-    if (!valid) return;
 
-    submitBtn.classList.add('loading');
-    submitBtn.textContent = 'Envoi en cours...';
-    statusEl.className = 'ghl-status';
-    statusEl.textContent = '';
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #050505; }
+    ::-webkit-scrollbar-thumb { background: #374151; border-radius: 99px; }
 
-    const payload = {
-      firstName: nameInput.value.trim(),
-      email: emailInput.value.trim(),
-      phone: document.getElementById('f_phone').value.trim(),
-      service: document.getElementById('f_service').value,
-      message: document.getElementById('f_message').value.trim()
+    /* Solid Background Layer */
+    #solid-background {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-color: #050505;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Gooey Background Animation */
+    #particles-background {
+      position: fixed;
+      inset: 0;
+      /* Placé derrière le contenu mais devant le fond uni */
+      z-index: -1;
+      overflow: hidden;
+      background: transparent;
+      /* Augmentation du contraste pour un effet de fusion plus prononcé */
+      filter: contrast(30);
+    }
+
+    .blob-1, .blob-2 {
+      position: absolute;
+      will-change: transform;
+      border-radius: 50%;
+      /* Flou plus important pour une fusion plus douce, opacité réduite */
+      filter: blur(80px);
+      opacity: 0.6;
+    }
+
+    .blob-1 {
+      /* Tailles responsives avec un maximum pour les grands écrans */
+      width: 40vw;
+      height: 40vw;
+      max-width: 400px;
+      max-height: 400px;
+      background-color: #ef4444; /* Red */
+      /* Animation plus longue et non-linéaire pour un mouvement organique */
+      animation: move-blob-1 30s infinite linear;
+    }
+
+    .blob-2 {
+      width: 30vw;
+      height: 30vw;
+      max-width: 300px;
+      max-height: 300px;
+      background-color: #E2E8F0; /* Off-white */
+      animation: move-blob-2 35s infinite linear;
+    }
+
+    @keyframes move-blob-1 {
+      0%   { transform: translate(10vw, -20vh) scale(1); }
+      25%  { transform: translate(80vw, 40vh) scale(0.8); }
+      50%  { transform: translate(50vw, 90vh) scale(1.2); }
+      75%  { transform: translate(-10vw, 50vh) scale(0.9); }
+      100% { transform: translate(10vw, -20vh) scale(1); }
+    }
+    @keyframes move-blob-2 {
+      0%   { transform: translate(80vw, 80vh) scale(1.1); }
+      25%  { transform: translate(30vw, -10vh) scale(0.9); }
+      50%  { transform: translate(-15vw, 40vh) scale(1); }
+      75%  { transform: translate(60vw, 20vh) scale(1.2); }
+      100% { transform: translate(80vw, 80vh) scale(1.1); }
+    }
+
+    /* Shimmer gradient text */
+    .text-shimmer {
+      background: linear-gradient(90deg, #FFFFFF 0%, #9CA3AF 30%, #FFFFFF 55%, #9CA3AF 80%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+
+    /* Animated border CTA */
+    .btn-animated {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-animated::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #FFFFFF, #E5E7EB, #FFFFFF);
+      background-size: 200%;
+      animation: shimmer 2.5s linear infinite;
+      z-index: 0;
+    }
+    .btn-animated span { position: relative; z-index: 1; color: #050505; }
+    .btn-animated:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(255,255,255,0.15); }
+
+    /* Outline CTA hover */
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: #FFFFFF;
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+    }
+
+    /* Grid noise texture overlay */
+    .noise::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Animated dot blink */
+    .dot-blink::after {
+      content: '|';
+      animation: blink 1s step-end infinite;
+      color: #ef4444;
+      margin-left: 2px;
+    }
+
+    /* Stat counter animated underline */
+    .stat-card {
+      background: #121212;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .stat-card:hover {
+      border-color: rgba(255,255,255,0.15);
+      transform: translateY(-4px);
+    }
+
+    /* Feature list item */
+    .feature-item {
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    /* Nav link hover */
+    .nav-link {
+      position: relative;
+      color: #94A3B8;
+      transition: color 0.2s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -3px;
+      width: 0; height: 1px;
+      background: #FFFFFF;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover { color: #E2E8F0; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Mobile menu transition */
+    #mobile-menu {
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+    #mobile-menu.open {
+      max-height: 400px;
+      opacity: 1;
+    }
+
+    /* Section fade-in via IntersectionObserver */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Decorative orb */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+    }
+    @media (max-width: 768px) {
+      .orb { opacity: 0.25 !important; }
+    }
+
+    /* Transition inter-pages */
+    .fade-in {
+      animation: fadeIn 0.4s ease forwards;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; } 100% { opacity: 1; }
+    }
+    
+    .curved-text {
+      transform-origin: center;
+    }
+
+    /* ── Theme: Light Mode Overrides ── */
+    body.light-mode { color: #1E293B !important; } /* Fond géré par #solid-background */
+    body.light-mode #solid-background { background-color: #F8FAFC; }
+    body.light-mode ::-webkit-scrollbar-track { background: #e2e8f0; }
+    body.light-mode ::-webkit-scrollbar-thumb { background: #94a3b8; }
+    body.light-mode .bg-\[\#050505\]\/95 { background-color: rgba(248, 250, 252, 0.95) !important; }
+    body.light-mode .bg-\[\#040812\]\/95 { background-color: rgba(241, 245, 249, 0.95) !important; }
+    body.light-mode .bg-\[\#0A0A0A\] { background-color: #FFFFFF !important; }
+    body.light-mode .bg-\[\#050505\] { background-color: #FFFFFF !important; }
+    body.light-mode .bg-slate-900 { background-color: #FFFFFF !important; }
+    body.light-mode .bg-slate-950 { background-color: #F8FAFC !important; }
+    body.light-mode .bg-brand-card { background-color: #FFFFFF !important; }
+    body.light-mode .bg-white { background-color: #0F172A !important; }
+    
+    body.light-mode .bg-slate-900\/60 { background-color: rgba(255, 255, 255, 0.7) !important; }
+    body.light-mode .bg-slate-900\/80 { background-color: rgba(255, 255, 255, 0.85) !important; }
+    body.light-mode .bg-slate-900\/40 { background-color: rgba(255, 255, 255, 0.5) !important; }
+    body.light-mode .bg-slate-900\/30 { background-color: rgba(241, 245, 249, 0.6) !important; }
+    body.light-mode .bg-slate-800\/50 { background-color: rgba(226, 232, 240, 0.5) !important; }
+
+    body.light-mode .text-white { color: #0F172A !important; }
+    body.light-mode .text-\[\#050505\] { color: #FFFFFF !important; }
+    body.light-mode .text-slate-400 { color: #475569 !important; }
+    body.light-mode .text-slate-300 { color: #334155 !important; }
+    body.light-mode .text-slate-200 { color: #1E293B !important; }
+    body.light-mode .text-slate-500 { color: #64748B !important; }
+    body.light-mode .text-brand-text { color: #475569 !important; }
+
+    /* Correction des effets au survol (Hovers) pour les Headers clairs */
+    body.light-mode .hover\:text-white:hover { color: #0F172A !important; } /* Pour le texte noir */
+    body.light-mode .hover\:text-emerald-400:hover,
+    body.light-mode .hover\:text-electric-400:hover,
+    body.light-mode .hover\:text-indigo-400:hover { color: #b91c1c !important; } /* Rouge foncé pour le survol en mode clair */
+    body.light-mode .hover\:bg-slate-800:hover { background-color: #E2E8F0 !important; }
+
+    body.light-mode .border-white\/5, 
+    body.light-mode .border-white\/10,
+    body.light-mode .border-white\/20 { border-color: rgba(0, 0, 0, 0.08) !important; }
+    body.light-mode .border-slate-800,
+    body.light-mode .border-slate-800\/50,
+    body.light-mode .border-slate-800\/60 { border-color: rgba(0, 0, 0, 0.08) !important; }
+
+    body.light-mode .from-\[\#050505\] { --tw-gradient-from: #F8FAFC !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important; }
+    body.light-mode .via-\[\#050505\]\/60 { --tw-gradient-via: rgba(248, 250, 252, 0.6) !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to) !important; }
+
+    body.light-mode .btn-animated::before { background: linear-gradient(90deg, #1E293B, #0F172A, #1E293B) !important; background-size: 200% !important; }
+    body.light-mode .btn-animated span { color: #FFFFFF !important; }
+    body.light-mode .btn-outline { border-color: rgba(0,0,0,0.2) !important; color: #0F172A !important; }
+    body.light-mode .btn-outline:hover { background-color: rgba(0,0,0,0.05) !important; }
+    body.light-mode .text-shimmer { background: linear-gradient(90deg, #0F172A 0%, #ef4444 30%, #0F172A 55%, #ef4444 80%) !important; background-size: 200% auto !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; }
+
+    body.light-mode .stat-card { background: #FFFFFF !important; border-color: rgba(0,0,0,0.08) !important; }
+    body.light-mode .stat-card:hover { border-color: rgba(0,0,0,0.15) !important; box-shadow: 0 10px 40px rgba(0,0,0,0.05) !important; }
+
+    body.light-mode [style*="linear-gradient(180deg, #060B18"] { background: #F8FAFC !important; }
+    body.light-mode .noise::after { opacity: 0.15 !important; }
+    
+    /* Correction des couleurs des blobs pour le mode clair */
+    body.light-mode .blob-1 { background-color: #ef4444; opacity: 0.5; }
+    body.light-mode .blob-2 { background-color: #94A3B8; opacity: 0.5; }
+    
+    body.light-mode input, body.light-mode select, body.light-mode textarea { background-color: #FFFFFF !important; border-color: #CBD5E1 !important; color: #0F172A !important; }
+    body.light-mode .nav-link { color: #475569 !important; }
+    body.light-mode .nav-link:hover { color: #0F172A !important; }
+    body.light-mode .nav-link::after { background: #0F172A !important; }
+    body.light-mode .hamburger-line, body.light-mode .hamburger-line-web, body.light-mode .hamburger-line-chat, body.light-mode .hamburger-line-hub {
+      background-color: #0F172A !important;
+    }
+    body.light-mode #theme-toggle { background-color: #FFFFFF !important; color: #0F172A !important; border-color: rgba(0,0,0,0.1) !important; box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important; }
+    body.light-mode .faq-item { background: #FFFFFF !important; border-color: rgba(0,0,0,0.08) !important; }
+    body.light-mode .faq-item:hover { border-color: rgba(0,0,0,0.15) !important; }
+  </style>
+</head>
+
+<body class="font-body antialiased">
+
+  <!-- Fond de couleur uni, derrière l'animation -->
+  <div id="solid-background"></div>
+
+  <!-- Conteneur pour l'animation de fond -->
+  <div id="particles-background">
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+  </div>
+
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" class="fixed bottom-6 right-6 z-[999] w-14 h-14 rounded-full bg-slate-800 text-white shadow-xl shadow-black/20 flex items-center justify-center border border-white/10 hover:scale-105 hover:bg-slate-700 transition-all cursor-pointer" aria-label="Basculer le thème">
+    <i class="fa-solid fa-sun text-xl"></i>
+  </button>
+
+  <!-- ════════════════════════════════════════════════════════
+       PORTAL HUB (Page d'accueil de l'écosystème)
+  ════════════════════════════════════════════════════════ -->
+  <div id="portal-hub" class="relative overflow-hidden">
+
+    <!-- NAVBAR ACCUEIL -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#050505]/95 backdrop-blur-md border-b border-white/5">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8">
+        <nav class="flex items-center justify-between h-16 md:h-[70px]">
+          <a href="#hub-hero" class="flex items-center group" aria-label="Asop-Automation — Accueil">
+            <span class="font-display text-white text-xl tracking-tight"><span class="text-shimmer font-bold">A</span>sop-Automation</span>
+          </a>
+          <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <li><a href="#expertise" class="nav-link">Notre expertise</a></li>
+            <li><a href="#services" class="nav-link">Nos services</a></li>
+            <li><a href="#contact-hub" class="nav-link">Contact</a></li>
+          </ul>
+          <a href="#contact-hub" class="hidden md:inline-flex bg-brand-accent hover:bg-red-600 transition-colors rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-accent/20">
+            <span>Discutons de votre projet →</span>
+          </a>
+          <button id="menu-toggle-hub" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span class="hamburger-line-hub block w-6 h-0.5 bg-slate-300 transition-all duration-300"></span>
+            <span class="hamburger-line-hub block w-6 h-0.5 bg-slate-300 transition-all duration-300"></span>
+            <span class="hamburger-line-hub block w-6 h-0.5 bg-slate-300 transition-all duration-300"></span>
+          </button>
+        </nav>
+        <div id="mobile-menu-hub" class="md:hidden overflow-hidden transition-all duration-300 max-h-0 opacity-0 bg-[#050505]">
+          <ul class="flex flex-col gap-1 pb-5 text-sm font-medium border-t border-slate-800 pt-4">
+            <li><a href="#expertise" class="block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" onclick="closeMobileMenuHub()">Notre expertise</a></li>
+            <li><a href="#services" class="block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" onclick="closeMobileMenuHub()">Nos services</a></li>
+            <li><a href="#contact-hub" class="block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" onclick="closeMobileMenuHub()">Contact</a></li>
+            <li class="mt-2">
+              <a href="#contact-hub" class="bg-brand-accent block rounded-lg px-5 py-3 text-center text-sm font-semibold text-white" onclick="closeMobileMenuHub()">
+                <span>Discutons de votre projet →</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO ACCUEIL -->
+    <section id="hub-hero" class="relative min-h-[90vh] flex flex-col justify-center overflow-hidden noise">
+      <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-brand-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-brand-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+      <div class="relative z-10 max-w-5xl mx-auto px-5 lg:px-8 pt-24 pb-16 text-center">
+        <div class="opacity-0 animate-fade-up flex justify-center mb-6">
+          <span class="inline-flex items-center gap-2 bg-brand-accent/10 border border-brand-accent/25 text-brand-accent text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full">
+            <i class="fa-solid fa-gears"></i> Studio d'Automatisation B2B
+          </span>
+        </div>
+        <h1 class="opacity-0 animate-fade-up-200 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.08] tracking-tight text-white mb-6 font-bold">
+          On automatise ce qui vous fait<br/><span class="text-shimmer">perdre du temps et de l'argent.</span>
+        </h1>
+        <p class="opacity-0 animate-fade-up-400 text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+          Appels manqués, leads perdus, communication interne qui repose sur la mémoire et le papier : nous construisons des systèmes simples qui règlent ces problèmes-là, sur-mesure, pour votre activité.
+        </p>
+        <div class="opacity-0 animate-fade-up-600 flex flex-col sm:flex-row justify-center gap-4">
+          <a href="#services" class="btn-animated rounded-xl px-8 py-3.5 text-sm font-bold text-slate-950 text-center shadow-xl shadow-white/5">
+            <span>Découvrir nos services</span>
+          </a>
+          <a href="#contact-hub" class="btn-outline rounded-xl px-8 py-3.5 text-sm font-semibold text-white text-center">
+            Discuter de votre projet
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTRE EXPERTISE -->
+    <section id="expertise" class="relative py-24 md:py-28 bg-slate-900/30 border-y border-slate-800/50">
+      <div class="max-w-6xl mx-auto px-5 lg:px-8">
+        <div class="reveal text-center mb-16">
+          <span class="inline-block text-electric-400 text-xs font-bold uppercase tracking-widest mb-4">Notre expertise</span>
+          <h2 class="font-display text-3xl md:text-5xl text-white font-bold mb-5 tracking-tight">Des systèmes qui font le travail,<br/>pas des gadgets.</h2>
+          <p class="text-slate-400 max-w-2xl mx-auto">Nous concevons et déployons des automatisations concrètes — voix, messagerie, logiciels internes — conçues pour votre métier, pas des solutions génériques.</p>
+        </div>
+        <div class="reveal grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 text-center hover:border-brand-accent/30 transition-colors">
+            <div class="w-12 h-12 mx-auto rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-5">
+              <i class="fa-solid fa-bolt text-brand-accent text-xl"></i>
+            </div>
+            <h3 class="font-display text-lg text-white font-bold mb-2">Déploiement rapide</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">De l'audit à la mise en production en quelques jours, pas en mois.</p>
+          </div>
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 text-center hover:border-brand-accent/30 transition-colors">
+            <div class="w-12 h-12 mx-auto rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-5">
+              <i class="fa-solid fa-puzzle-piece text-brand-accent text-xl"></i>
+            </div>
+            <h3 class="font-display text-lg text-white font-bold mb-2">Construit sur-mesure</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Chaque système est pensé autour de vos postes et de vos process réels, pas d'un modèle générique.</p>
+          </div>
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 text-center hover:border-brand-accent/30 transition-colors">
+            <div class="w-12 h-12 mx-auto rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-5">
+              <i class="fa-solid fa-lock text-brand-accent text-xl"></i>
+            </div>
+            <h3 class="font-display text-lg text-white font-bold mb-2">Vous restez propriétaire</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Vos données et votre système vous appartiennent, sans dépendance cachée envers nous.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOS SERVICES -->
+    <section id="services" class="relative py-24 md:py-28">
+      <div class="max-w-6xl mx-auto px-5 lg:px-8">
+        <div class="reveal text-center mb-14 md:mb-16">
+          <span class="inline-block text-electric-400 text-xs font-bold uppercase tracking-widest mb-4">Nos services</span>
+          <h2 class="font-display text-3xl md:text-5xl text-white font-bold mb-5 tracking-tight">Trois façons de reprendre<br/>le contrôle de votre activité.</h2>
+          <p class="text-slate-400 max-w-2xl mx-auto">Choisissez le système qui correspond à votre problème du moment. Chacun se déploie indépendamment, et se combine avec les autres.</p>
+        </div>
+
+        <div class="reveal grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto w-full">
+
+          <!-- Service 1 : Réception Vocale -->
+          <div onclick="enterSite('voice')" class="cursor-pointer relative group bg-slate-900/80 border border-brand-accent/30 hover:border-brand-accent rounded-3xl p-7 lg:p-8 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-brand-accent/20 flex flex-col overflow-hidden backdrop-blur-sm">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="flex items-center gap-4 mb-6 relative z-10">
+              <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-robot text-brand-accent text-xl"></i>
+              </div>
+              <h3 class="font-display text-xl text-white font-bold leading-tight">Réception Vocale Automatisée</h3>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow relative z-10">Un agent vocal IA qui décroche, qualifie et transmet 24/7. Ne manquez plus jamais un appel.</p>
+            <div class="mt-auto pt-6 border-t border-slate-800/80 text-center relative z-10">
+              <span class="inline-block text-brand-accent font-bold text-sm group-hover:text-red-300 group-hover:translate-x-1 transition-all">Découvrir le service →</span>
+            </div>
+          </div>
+
+          <!-- Service 2 : Capture de Leads Omnicanale -->
+          <div onclick="enterSite('chat')" class="cursor-pointer relative group bg-slate-900/80 border border-brand-accent/30 hover:border-brand-accent rounded-3xl p-7 lg:p-8 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-brand-accent/20 flex flex-col overflow-hidden backdrop-blur-sm">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="flex items-center gap-4 mb-6 relative z-10">
+              <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-comments text-brand-accent text-xl"></i>
+              </div>
+              <h3 class="font-display text-xl text-white font-bold leading-tight">Capture de Leads Omnicanale</h3>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow relative z-10">Capturez les leads de votre site web et réseaux sociaux, même en dehors de vos horaires. Rentabilisez votre budget publicitaire.</p>
+            <div class="mt-auto pt-6 border-t border-slate-800/80 text-center relative z-10">
+              <span class="inline-block text-brand-accent font-bold text-sm group-hover:text-red-300 group-hover:translate-x-1 transition-all">Découvrir le service →</span>
+            </div>
+          </div>
+
+          <!-- Service 3 : SaaS Privé d'Automatisation Interne -->
+          <div onclick="enterSite('web')" class="cursor-pointer relative group bg-slate-900/80 border border-brand-accent/30 hover:border-brand-accent rounded-3xl p-7 lg:p-8 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-brand-accent/20 flex flex-col overflow-hidden backdrop-blur-sm">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="flex items-center gap-4 mb-6 relative z-10">
+              <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-diagram-project text-brand-accent text-xl"></i>
+              </div>
+              <h3 class="font-display text-xl text-white font-bold leading-tight">SaaS Privé d'Automatisation Interne</h3>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow relative z-10">Une plateforme sur-mesure qui fait parler vos postes entre eux en temps réel : salle, cuisine, caisse, gérance. Fini les allers-retours et les erreurs de communication.</p>
+            <div class="mt-auto pt-6 border-t border-slate-800/80 text-center relative z-10">
+              <span class="inline-block text-brand-accent font-bold text-sm group-hover:text-red-300 group-hover:translate-x-1 transition-all">Découvrir le service →</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT ACCUEIL -->
+    <section id="contact-hub" class="relative py-24 md:py-28 bg-slate-900/30 border-y border-slate-800/50 overflow-hidden">
+      <div class="relative z-10 max-w-2xl mx-auto px-5 lg:px-8">
+        <div class="text-center mb-10">
+          <h2 class="font-display text-3xl md:text-4xl text-white font-bold mb-4">Un projet en tête ? Discutons-en.</h2>
+          <p class="text-slate-400">Dites-nous où vous perdez du temps ou de l'argent, on vous oriente vers le bon service — ou on en construit un sur-mesure.</p>
+        </div>
+        <form id="form-hub" action="/api/submit" class="space-y-5">
+          <div class="hidden">
+            <label for="honeypot-hub">Ne pas remplir ce champ</label>
+            <input type="text" id="honeypot-hub" name="honeypot" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="module" value="Contact Hub">
+          </div>
+          <div class="grid md:grid-cols-2 gap-5">
+            <div data-field>
+              <label class="block text-xs font-semibold text-slate-400 mb-2">Nom complet *</label>
+              <div class="relative">
+                <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                <input type="text" name="nom" placeholder="Jean Dupont" data-required class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+              </div>
+              <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+            </div>
+            <div data-field>
+              <label class="block text-xs font-semibold text-slate-400 mb-2">Entreprise *</label>
+              <div class="relative">
+                <i class="fa-solid fa-building absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                <input type="text" name="entreprise" placeholder="Nom de votre entreprise" data-required class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+              </div>
+              <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-5">
+            <div data-field>
+              <label class="block text-xs font-semibold text-slate-400 mb-2">Téléphone *</label>
+              <div class="relative">
+                <i class="fa-solid fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                <input type="tel" name="telephone" placeholder="06 12 34 56 78" data-required class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+              </div>
+              <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+            </div>
+            <div data-field>
+              <label class="block text-xs font-semibold text-slate-400 mb-2">Email *</label>
+              <div class="relative">
+                <i class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                <input type="email" name="email" placeholder="jean@exemple.com" data-required data-type="email" class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+              </div>
+              <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+            </div>
+          </div>
+          <div data-field>
+            <label class="block text-xs font-semibold text-slate-400 mb-2">Votre message</label>
+            <div class="relative">
+              <i class="fa-solid fa-pen absolute left-4 top-4 text-slate-600 text-sm pointer-events-none"></i>
+              <textarea rows="3" name="besoin" placeholder="Décrivez votre besoin en quelques mots..." class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors"></textarea>
+            </div>
+          </div>
+          <div data-field>
+            <label class="flex items-start gap-3 text-xs text-slate-400 leading-relaxed cursor-pointer">
+              <span class="relative mt-0.5 w-4 h-4 shrink-0">
+                <input type="checkbox" name="consent" data-required class="peer sr-only" />
+                <span class="absolute inset-0 rounded border border-slate-700 bg-slate-950 peer-checked:bg-brand-accent peer-checked:border-brand-accent transition-colors pointer-events-none"></span>
+                <i class="fa-solid fa-check absolute inset-0 flex items-center justify-center text-[9px] text-slate-950 opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none"></i>
+              </span>
+              <span>J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la <a href="politique-confidentialite.html" class="text-brand-accent hover:underline">politique de confidentialité</a>. *</span>
+            </label>
+            <p class="field-error hidden text-red-400 text-xs mt-1.5 ml-7"></p>
+          </div>
+          <button type="submit" class="btn-animated w-full rounded-xl px-8 py-4 text-sm font-bold text-slate-950 shadow-xl shadow-electric-500/20">
+            <span class="relative z-10 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-circle-notch fa-spin btn-spinner hidden"></i>
+              <span class="btn-label">Envoyer la demande →</span>
+            </span>
+          </button>
+          <p class="text-center text-xs text-slate-500">R&eacute;ponse sous 24h &middot; Sans engagement &middot; Donn&eacute;es prot&eacute;g&eacute;es</p>
+        </form>
+        <div id="form-success-hub" class="hidden text-center py-10">
+          <div class="w-14 h-14 mx-auto rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-5">
+            <i class="fa-solid fa-check text-emerald-400 text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl text-white font-bold mb-2">Message envoyé</h3>
+          <p class="text-slate-400 text-sm max-w-sm mx-auto">Merci ! Notre équipe vous recontactera sous 24h ouvrées.</p>
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-6">contact@asop-automation.com</p>
+      </div>
+    </section>
+
+    <!-- FOOTER ACCUEIL -->
+    <footer class="border-t border-slate-800/60 py-8">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center">
+          <span class="font-display text-white text-lg tracking-tight"><span class="text-shimmer font-bold">A</span>sop-Automation</span>
+        </div>
+        <p class="text-slate-500 text-xs text-center md:text-left">© 2026 ASOP Automation — Studio d'Automatisation B2B.</p>
+        <div class="flex gap-4 text-slate-500 hover:text-white transition-colors">
+          <a href="mentions-legales.html" class="text-xs hover:text-white transition-colors">Mentions légales</a>
+          <a href="politique-confidentialite.html" class="text-xs hover:text-white transition-colors">Confidentialité</a>
+          <a href="#hub-hero" class="text-xs font-semibold uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-arrow-up"></i> Haut de page</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <!-- /PORTAL HUB -->
+  <!-- ════════════════════════════════════════════════════════
+       MAIN SITE : AGENT VOCAL (Caché par défaut) — Version minimale
+  ════════════════════════════════════════════════════════ -->
+  <div id="main-site" style="display: none;">
+
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="hidden md:flex bg-[#050505]/95 border-b border-white/5 text-xs py-2 px-5 lg:px-8 justify-between items-center backdrop-blur-md">
+      <button onclick="returnToHub()" class="text-brand-text hover:text-white transition-colors flex items-center gap-2 font-semibold"><i class="fa-solid fa-grip text-[10px]"></i> Portail Principal</button>
+      <div class="flex gap-6">
+        <span class="text-brand-accent font-semibold flex items-center gap-1.5 border-b border-brand-accent pb-0.5"><i class="fa-solid fa-robot"></i> Réception Vocale</span>
+        <button onclick="enterSite('chat')" class="text-slate-500 hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-comments"></i> Capture Omnicanale</button>
+        <button onclick="enterSite('web')" class="text-slate-500 hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-diagram-project"></i> SaaS Interne</button>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+      <nav class="flex items-center justify-between h-16 md:h-[70px]">
+        <a href="javascript:void(0)" onclick="returnToHub()" class="flex items-center group" aria-label="Asop-Automation — Hub">
+          <span class="font-display text-white text-xl tracking-tight"><span class="text-shimmer font-bold">A</span>sop-Automation</span>
+        </a>
+        <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <li><a href="#fonctionnalites" class="nav-link">Fonctionnalités</a></li>
+          <li><a href="#tarifs" class="nav-link">Tarifs</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <a href="#contact" class="hidden md:inline-flex bg-brand-accent hover:bg-red-600 transition-colors rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-accent/20">
+          <span>Audit gratuit →</span>
+        </a>
+        <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span class="hamburger-line block w-6 h-0.5 bg-slate-300 transition-all duration-300"></span>
+          <span class="hamburger-line block w-6 h-0.5 bg-slate-300 transition-all duration-300"></span>
+          <span class="hamburger-line block w-6 h-0.5 bg-slate-300 transition-all duration-300"></span>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="bg-[#050505]" role="navigation" aria-label="Menu mobile">
+        <ul class="flex flex-col gap-1 pb-5 text-sm font-medium border-t border-slate-800 pt-4">
+          <li class="mb-2"><button onclick="returnToHub(); closeMobileMenu()" class="w-full text-left py-2.5 px-3 rounded-lg bg-slate-800/50 text-white hover:bg-slate-800 flex items-center gap-2 transition-colors"><i class="fa-solid fa-grip text-xs text-brand-accent"></i> Retour au Portail</button></li>
+          <li><a href="#fonctionnalites" class="block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" onclick="closeMobileMenu()">Fonctionnalités</a></li>
+          <li><a href="#tarifs" class="block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" onclick="closeMobileMenu()">Tarifs</a></li>
+          <li><a href="#contact" class="block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" onclick="closeMobileMenu()">Contact</a></li>
+          <li class="mt-3 pt-3 border-t border-slate-800/70">
+            <span class="block px-3 pb-2 text-[10px] font-bold uppercase tracking-widest text-slate-600">Autres services</span>
+          </li>
+          <li><button onclick="enterSite('chat'); closeMobileMenu()" class="w-full text-left py-2 px-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-comments text-xs"></i> Capture Omnicanale</button></li>
+          <li><button onclick="enterSite('web'); closeMobileMenu()" class="w-full text-left py-2 px-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-diagram-project text-xs"></i> SaaS Interne</button></li>
+          <li class="mt-2">
+            <a href="#contact" class="btn-animated block rounded-lg px-5 py-3 text-center text-sm font-semibold text-slate-950" onclick="closeMobileMenu()">
+              <span>Demander ma démonstration →</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="relative min-h-[85vh] flex flex-col justify-center overflow-hidden noise">
+    <div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 80px 80px;"></div>
+    <div class="relative z-10 max-w-5xl mx-auto px-5 lg:px-8 pt-32 pb-20 text-center">
+      <div class="opacity-0 animate-fade-up flex justify-center mb-6">
+        <span class="inline-flex items-center gap-2 bg-brand-accent/10 border border-brand-accent/25 text-brand-accent text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full">
+          <i class="fa-solid fa-robot"></i> Réception Vocale Automatisée
+        </span>
+      </div>
+      <h1 class="opacity-0 animate-fade-up-200 font-sans text-4xl sm:text-5xl md:text-6xl leading-[1.1] tracking-tight text-white mb-6 font-bold uppercase">
+        Chaque appel manqué<br/><span class="text-shimmer">a un coût. Nous le récupérons.</span>
+      </h1>
+      <p class="opacity-0 animate-fade-up-400 text-brand-text text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+        Un agent vocal IA qui décroche, qualifie et transmet 24/7. Déployé en quelques jours, sans changer votre façon de travailler.
+      </p>
+      <div class="opacity-0 animate-fade-up-600 flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#tarifs" class="btn-animated rounded-xl px-8 py-3.5 text-sm font-bold text-slate-950 text-center shadow-xl shadow-white/5">
+          <span>Voir les tarifs</span>
+        </a>
+        <a href="#contact" class="btn-outline rounded-xl px-8 py-3.5 text-sm font-semibold text-white text-center">
+          Demander une démonstration
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMENT ÇA MARCHE (schéma) -->
+  <section class="relative py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-5 lg:px-8">
+      <h2 class="text-center font-display text-2xl md:text-3xl text-white font-bold mb-12">Comment ça marche</h2>
+      <div class="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-4 md:gap-2">
+        <div class="flex-1 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 text-center">
+          <div class="w-11 h-11 mx-auto rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-phone text-brand-accent"></i>
+          </div>
+          <h3 class="font-display text-sm text-white font-bold mb-1.5">Un appel arrive</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Sur votre ligne existante, 24h/24</p>
+        </div>
+        <div class="hidden md:flex items-center text-slate-700"><i class="fa-solid fa-arrow-right text-lg"></i></div>
+        <div class="md:hidden text-slate-700"><i class="fa-solid fa-arrow-down text-lg"></i></div>
+        <div class="flex-1 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 text-center">
+          <div class="w-11 h-11 mx-auto rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-robot text-brand-accent"></i>
+          </div>
+          <h3 class="font-display text-sm text-white font-bold mb-1.5">L'agent vocal répond</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Il qualifie la demande de l'appelant</p>
+        </div>
+        <div class="hidden md:flex items-center text-slate-700"><i class="fa-solid fa-arrow-right text-lg"></i></div>
+        <div class="md:hidden text-slate-700"><i class="fa-solid fa-arrow-down text-lg"></i></div>
+        <div class="flex-1 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 text-center">
+          <div class="w-11 h-11 mx-auto rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-arrow-right-to-bracket text-brand-accent"></i>
+          </div>
+          <h3 class="font-display text-sm text-white font-bold mb-1.5">Transmission</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Transfert à votre équipe ou récapitulatif immédiat</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FONCTIONNALITÉS -->
+  <section id="fonctionnalites" class="relative py-20 md:py-24 bg-slate-900/30 border-y border-slate-800/50">
+    <div class="max-w-6xl mx-auto px-5 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="inline-block text-brand-accent text-xs font-bold uppercase tracking-widest mb-4">Ce que peut faire votre agent vocal</span>
+        <h2 class="font-display text-3xl md:text-4xl text-white font-bold mb-5 tracking-tight">Une conversation téléphonique de niveau humain.</h2>
+        <p class="text-slate-400 max-w-2xl mx-auto">Nos agents vocaux reproduisent des échanges naturels et fluides — pour l'accueil, la vente, le support ou la prise de rendez-vous.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- 1. Voix ultra-réalistes (mise en avant) -->
+        <div class="md:col-span-2 lg:col-span-1 bg-slate-900/80 border border-brand-accent/25 rounded-2xl p-6">
+          <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-microphone-lines text-brand-accent"></i>
+          </div>
+          <h3 class="font-display text-base text-white font-bold mb-2">Voix ultra-réalistes</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-3">Un large catalogue de voix naturelles au choix, avec intonation, pauses et émotions crédibles — y compris en multilingue. Vos interlocuteurs parlent à un agent qui sonne vrai.</p>
+          <p class="text-slate-500 text-xs leading-relaxed border-t border-slate-800 pt-3">
+            <i class="fa-solid fa-plus text-brand-accent mr-1"></i> En option : clonage de la voix d'un collaborateur ou d'une personnalité, pour un agent avec votre propre timbre.
+          </p>
+        </div>
+
+        <!-- 2. Prise de RDV & qualification -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+          <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-calendar-check text-brand-accent"></i>
+          </div>
+          <h3 class="font-display text-base text-white font-bold mb-2">Rendez-vous & qualification</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Prise de rendez-vous en temps réel avec synchronisation d'agenda, qualification de leads par téléphone, rappels automatiques, enquêtes de satisfaction.</p>
+        </div>
+
+        <!-- 3. Conversations complexes -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+          <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-comments text-brand-accent"></i>
+          </div>
+          <h3 class="font-display text-base text-white font-bold mb-2">Gestion d'appels complexes</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Détection de répondeur, transfert fluide vers un humain, gestion des silences et interruptions, mémoire de la conversation d'un appel à l'autre.</p>
+        </div>
+
+        <!-- 4. Personnalisation -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+          <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-sliders text-brand-accent"></i>
+          </div>
+          <h3 class="font-display text-base text-white font-bold mb-2">Personnalisation profonde</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Scripts sur mesure, comportement adapté au contexte (heure, historique client), garde-fous pour éviter les dérapages, entraînement sur vos données.</p>
+        </div>
+
+        <!-- 5. Intégrations -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+          <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-plug text-brand-accent"></i>
+          </div>
+          <h3 class="font-display text-base text-white font-bold mb-2">Intégrations & actions en temps réel</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Connexion à votre téléphonie (Twilio, Vonage...), CRM et agenda. Mise à jour de fiches clients, envoi d'emails/SMS, enregistrement et transcription automatique.</p>
+        </div>
+
+        <!-- 6. Performance -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+          <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-gauge-high text-brand-accent"></i>
+          </div>
+          <h3 class="font-display text-base text-white font-bold mb-2">Performance & suivi</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Latence sous la seconde, réduction du bruit ambiant, analytics détaillés (transcription, sentiment, taux de résolution), déploiement multi-canal.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TARIFS -->
+  <section id="tarifs" class="relative py-24 md:py-28">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl text-white font-bold mb-4">Tarifs — Réception Vocale</h2>
+        <p class="text-slate-400">Déploiement en 3 à 7 jours. Sans engagement de durée.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 items-start">
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 hover:-translate-y-1 transition-all">
+          <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2">Essentiel</div>
+          <h3 class="font-display text-xl text-white font-bold mb-4">Une ligne, un script</h3>
+          <div class="flex items-end flex-wrap gap-x-2 gap-y-1 mb-6">
+            <span class="font-display text-4xl text-white font-bold">2 400 €</span><span class="text-slate-500 text-sm mb-1">Setup + 139 €/mois</span>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300 mb-8">
+            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Réception d'appels 24/7</li>
+            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Qualification simple des appelants</li>
+            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Transfert vers votre équipe</li>
+            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Récapitulatif par email/SMS</li>
+          </ul>
+          <a href="#contact" class="btn-outline block text-center rounded-xl px-6 py-3 text-sm font-semibold">Démarrer</a>
+        </div>
+        <div class="bg-slate-900 border border-brand-accent/30 rounded-2xl p-7 hover:-translate-y-1 transition-all relative shadow-2xl shadow-brand-accent/10 lg:-mt-4">
+          <div class="text-brand-accent text-xs font-bold uppercase tracking-widest mb-2 mt-2">Pro</div>
+          <h3 class="font-display text-xl text-white font-bold mb-4">Multi-scénarios + CRM</h3>
+          <div class="flex items-end flex-wrap gap-x-2 gap-y-1 mb-6">
+            <span class="font-display text-4xl text-white font-bold">4 900 €</span><span class="text-slate-500 text-sm mb-1">Setup + 229 €/mois</span>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300 mb-8">
+            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Tout l'Essentiel, augmenté de :</li>
+            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Scénarios multiples selon la demande</li>
+            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Connexion à votre CRM ou agenda</li>
+            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Rapport hebdomadaire de performance</li>
+          </ul>
+          <a href="#contact" class="btn-animated block text-center rounded-xl px-6 py-3 text-sm font-bold text-slate-950">Choisir ce plan</a>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 hover:-translate-y-1 transition-all">
+          <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2">Sur-mesure</div>
+          <h3 class="font-display text-xl text-white font-bold mb-4">Multi-lignes & intégrations</h3>
+          <div class="flex items-end flex-wrap gap-x-2 gap-y-1 mb-6">
+            <span class="font-display text-3xl text-white font-bold">Devis</span>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300 mb-8">
+            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Plusieurs lignes / plusieurs sites</li>
+            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Intégrations métier avancées</li>
+            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Accompagnement dédié</li>
+          </ul>
+          <a href="#contact" class="btn-outline block text-center rounded-xl px-6 py-3 text-sm font-semibold">Nous contacter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / CTA FORM -->
+  <section id="contact" class="relative py-24 md:py-28 overflow-hidden">
+    <div class="relative z-10 max-w-3xl mx-auto px-5 lg:px-8">
+      <div class="reveal text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl text-white font-bold mb-4">Un audit gratuit de votre déperdition d'appels.</h2>
+        <p class="text-slate-400 max-w-xl mx-auto">15 minutes, sans engagement.</p>
+      </div>
+      <div class="reveal bg-slate-900/60 border border-slate-800 p-8 md:p-10 rounded-2xl relative overflow-hidden">
+        <div class="absolute top-0 left-10 right-10 h-px bg-gradient-to-r from-transparent via-electric-500/30 to-transparent"></div>
+
+        <!-- Ajoutez action="https://formspree.io/f/VOTRE_ID" method="POST" sur le <form> ci-dessous une fois votre service d'envoi configuré -->
+        <form id="form-voice" class="space-y-5">
+          <div class="hidden">
+            <label for="honeypot-voice">Ne pas remplir ce champ</label>
+            <input type="text" id="honeypot-voice" name="honeypot" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="module" value="Réception Vocale">
+          </div>
+          <div class="grid md:grid-cols-2 gap-5">
+            <div data-field>
+              <label class="block text-xs font-semibold text-slate-400 mb-2">Nom complet *</label>
+              <div class="relative">
+                <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                <input type="text" name="nom" placeholder="Jean Dupont" data-required class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+              </div>
+              <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+            </div>
+            <div data-field>
+              <label class="block text-xs font-semibold text-slate-400 mb-2">Entreprise *</label>
+              <div class="relative">
+                <i class="fa-solid fa-building absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                <input type="text" name="entreprise" placeholder="Nom de votre entreprise" data-required class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+              </div>
+              <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-5">
+            <div data-field>
+              <label class="block text-xs font-semibold text-slate-400 mb-2">Téléphone *</label>
+              <div class="relative">
+                <i class="fa-solid fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                <input type="tel" name="telephone" placeholder="06 12 34 56 78" data-required class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+              </div>
+              <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+            </div>
+            <div data-field>
+              <label class="block text-xs font-semibold text-slate-400 mb-2">Email *</label>
+              <div class="relative">
+                <i class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                <input type="email" name="email" placeholder="jean@exemple.com" data-required data-type="email" class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+              </div>
+              <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+            </div>
+          </div>
+          <div data-field>
+            <label class="block text-xs font-semibold text-slate-400 mb-2">Votre besoin</label>
+            <div class="relative">
+              <i class="fa-solid fa-pen absolute left-4 top-4 text-slate-600 text-sm pointer-events-none"></i>
+              <textarea rows="3" name="besoin" placeholder="Combien d'appels perdez-vous par semaine ?" class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors"></textarea>
+            </div>
+          </div>
+          <div data-field>
+            <label class="flex items-start gap-3 text-xs text-slate-400 leading-relaxed cursor-pointer">
+              <span class="relative mt-0.5 w-4 h-4 shrink-0">
+                <input type="checkbox" name="consent" data-required class="peer sr-only" />
+                <span class="absolute inset-0 rounded border border-slate-700 bg-slate-950 peer-checked:bg-brand-accent peer-checked:border-brand-accent transition-colors pointer-events-none"></span>
+                <i class="fa-solid fa-check absolute inset-0 flex items-center justify-center text-[9px] text-slate-950 opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none"></i>
+              </span>
+              <span>J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la <a href="politique-confidentialite.html" class="text-brand-accent hover:underline">politique de confidentialité</a>. *</span>
+            </label>
+            <p class="field-error hidden text-red-400 text-xs mt-1.5 ml-7"></p>
+          </div>
+          <button type="submit" class="btn-animated w-full rounded-xl px-8 py-4 text-sm font-bold text-slate-950 shadow-xl shadow-electric-500/20">
+            <span class="relative z-10 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-circle-notch fa-spin btn-spinner hidden"></i>
+              <span class="btn-label">Envoyer la demande →</span>
+            </span>
+          </button>
+          <p class="text-center text-xs text-slate-500">Réponse sous 24h · Sans engagement · Données protégées</p>
+        </form>
+
+        <!-- État de confirmation -->
+        <div id="form-success-voice" class="hidden text-center py-10">
+          <div class="w-14 h-14 mx-auto rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-5">
+            <i class="fa-solid fa-check text-emerald-400 text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl text-white font-bold mb-2">Demande envoyée</h3>
+          <p class="text-slate-400 text-sm max-w-sm mx-auto">Merci ! On revient vers vous sous 24h ouvrées pour organiser votre audit gratuit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer" class="border-t border-slate-800/60 py-8">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <a href="#hero" class="flex items-center" aria-label="Retour accueil">
+        <span class="font-display text-white text-lg tracking-tight"><span class="text-shimmer font-bold">A</span>sop-Automation</span>
+      </a>
+      <p class="text-slate-500 text-xs">© 2026 ASOP Automation — Infrastructure d'Automatisation B2B.</p>
+      <div class="flex gap-4 text-slate-500 hover:text-white transition-colors">
+        <a href="mentions-legales.html" class="text-xs hover:text-white transition-colors">Mentions légales</a>
+          <a href="politique-confidentialite.html" class="text-xs hover:text-white transition-colors">Confidentialité</a>
+          <a href="#hero" class="text-xs font-semibold uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-arrow-up"></i> Haut de page</a>
+      </div>
+    </div>
+  </footer>
+  </div> <!-- /MAIN SITE -->
+  <!-- ════════════════════════════════════════════════════════
+       CHAT SITE : CAPTURE DE LEADS OMNICANALE (Caché par défaut) — Version minimale
+  ════════════════════════════════════════════════════════ -->
+  <div id="chat-site" style="display: none;">
+
+    <header id="navbar-chat" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+      <div class="hidden md:flex bg-[#050505]/95 border-b border-slate-800/60 text-xs py-2 px-5 lg:px-8 justify-between items-center backdrop-blur-md">
+        <button onclick="returnToHub()" class="text-slate-400 hover:text-white transition-colors flex items-center gap-2 font-semibold"><i class="fa-solid fa-grip text-[10px]"></i> Portail Principal</button>
+        <div class="flex gap-6">
+          <button onclick="enterSite('voice')" class="text-slate-500 hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-robot"></i> Réception Vocale</button>
+          <span class="text-electric-400 font-semibold flex items-center gap-1.5 border-b border-electric-400 pb-0.5"><i class="fa-solid fa-comments"></i> Capture Omnicanale</span>
+          <button onclick="enterSite('web')" class="text-slate-500 hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-diagram-project"></i> SaaS Interne</button>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-5 lg:px-8">
+        <nav class="flex items-center justify-between h-16 md:h-[70px]">
+          <a href="javascript:void(0)" onclick="returnToHub()" class="flex items-center group" aria-label="Asop-Automation — Hub">
+            <span class="font-display text-white text-xl tracking-tight"><span class="text-shimmer font-bold">A</span>sop-Automation</span>
+          </a>
+          <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <li><a href="#fonctionnalites-chat" class="nav-link">Fonctionnalités</a></li>
+            <li><a href="#tarifs-chat" class="nav-link">Tarifs</a></li>
+            <li><a href="#contact-chat" class="nav-link">Contact</a></li>
+          </ul>
+          <a href="#contact-chat" class="hidden md:inline-flex bg-brand-accent hover:bg-red-600 transition-colors rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-accent/20">
+            <span>Demander un devis →</span>
+          </a>
+          <button id="menu-toggle-chat" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none">
+            <span class="hamburger-line-chat block w-6 h-0.5 bg-slate-300 transition-all duration-300"></span>
+            <span class="hamburger-line-chat block w-6 h-0.5 bg-slate-300 transition-all duration-300"></span>
+            <span class="hamburger-line-chat block w-6 h-0.5 bg-slate-300 transition-all duration-300"></span>
+          </button>
+        </nav>
+        <div id="mobile-menu-chat" class="md:hidden overflow-hidden transition-all duration-300 max-h-0 opacity-0 bg-[#050505]">
+          <ul class="flex flex-col gap-1 pb-5 text-sm font-medium border-t border-slate-800 pt-4">
+            <li class="mb-2"><button onclick="returnToHub(); closeMobileMenuChat()" class="w-full text-left py-2.5 px-3 rounded-lg bg-slate-800/50 text-white hover:bg-slate-800 flex items-center gap-2 transition-colors"><i class="fa-solid fa-grip text-xs text-white"></i> Retour au Portail</button></li>
+            <li><a href="#fonctionnalites-chat" class="block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" onclick="closeMobileMenuChat()">Fonctionnalités</a></li>
+            <li><a href="#tarifs-chat" class="block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" onclick="closeMobileMenuChat()">Tarifs</a></li>
+            <li><a href="#contact-chat" class="block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" onclick="closeMobileMenuChat()">Contact</a></li>
+            <li class="mt-3 pt-3 border-t border-slate-800/70">
+              <span class="block px-3 pb-2 text-[10px] font-bold uppercase tracking-widest text-slate-600">Autres services</span>
+            </li>
+            <li><button onclick="enterSite('voice'); closeMobileMenuChat()" class="w-full text-left py-2 px-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-robot text-xs"></i> Réception Vocale</button></li>
+            <li><button onclick="enterSite('web'); closeMobileMenuChat()" class="w-full text-left py-2 px-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-diagram-project text-xs"></i> SaaS Interne</button></li>
+            <li class="mt-2">
+              <a href="#contact-chat" class="bg-brand-accent block rounded-lg px-5 py-3 text-center text-sm font-semibold text-white" onclick="closeMobileMenuChat()">
+                <span>Demander un devis →</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero-chat" class="relative min-h-[85vh] flex flex-col justify-center overflow-hidden noise">
+      <div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 80px 80px;"></div>
+      <div class="relative z-10 max-w-5xl mx-auto px-5 lg:px-8 pt-32 pb-20 text-center">
+        <div class="opacity-0 animate-fade-up flex justify-center mb-6">
+          <span class="inline-flex items-center gap-2 bg-brand-accent/10 border border-brand-accent/25 text-brand-accent text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full">
+            <i class="fa-solid fa-comments"></i> Capture de Leads Omnicanale
+          </span>
+        </div>
+        <h1 class="opacity-0 animate-fade-up-200 font-display text-4xl sm:text-5xl md:text-6xl leading-[1.1] tracking-tight text-white mb-6 font-bold">
+          Un prospect sur deux<br/><span class="text-brand-accent">n'attend pas votre réponse.</span>
+        </h1>
+        <p class="opacity-0 animate-fade-up-400 text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+          Capturez et qualifiez vos leads sur votre site et vos réseaux sociaux, même en dehors de vos horaires. Rentabilisez chaque euro de budget publicitaire.
+        </p>
+        <div class="opacity-0 animate-fade-up-600 flex flex-col sm:flex-row justify-center gap-4">
+          <a href="#tarifs-chat" class="btn-animated rounded-xl px-8 py-3.5 text-sm font-bold text-slate-950 text-center shadow-xl shadow-white/5">
+            <span>Voir les tarifs</span>
+          </a>
+          <a href="#contact-chat" class="btn-outline rounded-xl px-8 py-3.5 text-sm font-semibold text-white text-center">
+            Demander un devis
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMENT ÇA MARCHE (schéma) -->
+    <section class="relative py-16 md:py-20">
+      <div class="max-w-5xl mx-auto px-5 lg:px-8">
+        <h2 class="text-center font-display text-2xl md:text-3xl text-white font-bold mb-12">Comment ça marche</h2>
+        <div class="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-4 md:gap-2">
+          <div class="flex-1 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 text-center">
+            <div class="w-11 h-11 mx-auto rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-comment-dots text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-sm text-white font-bold mb-1.5">Un message arrive</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">Site web, WhatsApp, Instagram...</p>
+          </div>
+          <div class="hidden md:flex items-center text-slate-700"><i class="fa-solid fa-arrow-right text-lg"></i></div>
+          <div class="md:hidden text-slate-700"><i class="fa-solid fa-arrow-down text-lg"></i></div>
+          <div class="flex-1 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 text-center">
+            <div class="w-11 h-11 mx-auto rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-list-check text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-sm text-white font-bold mb-1.5">Qualification automatique</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">Le besoin du prospect est identifié</p>
+          </div>
+          <div class="hidden md:flex items-center text-slate-700"><i class="fa-solid fa-arrow-right text-lg"></i></div>
+          <div class="md:hidden text-slate-700"><i class="fa-solid fa-arrow-down text-lg"></i></div>
+          <div class="flex-1 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 text-center">
+            <div class="w-11 h-11 mx-auto rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-arrow-right-to-bracket text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-sm text-white font-bold mb-1.5">Transmission</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">Le lead qualifié arrive directement chez vous</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FONCTIONNALITÉS -->
+    <section id="fonctionnalites-chat" class="relative py-20 md:py-24 bg-slate-900/30 border-y border-slate-800/50">
+      <div class="max-w-6xl mx-auto px-5 lg:px-8">
+        <div class="text-center mb-14">
+          <span class="inline-block text-brand-accent text-xs font-bold uppercase tracking-widest mb-4">Ce que peut faire votre chatbot</span>
+          <h2 class="font-display text-3xl md:text-4xl text-white font-bold mb-5 tracking-tight">Un assistant conversationnel qui travaille pour vous.</h2>
+          <p class="text-slate-400 max-w-2xl mx-auto">Intégré à votre site, vos applications ou vos plateformes de messagerie, pour des interactions naturelles et ultra-personnalisées.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+            <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-comments text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-base text-white font-bold mb-2">Interactions intelligentes</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Dialogues ouverts, questions de clarification, mémoire du contexte sur plusieurs échanges, adaptation en temps réel au comportement de l'utilisateur.</p>
+          </div>
+
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+            <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-list-check text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-base text-white font-bold mb-2">Tâches automatisées</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Prise de rendez-vous, qualification de leads, support client 24/7, traitement de commandes, rappels et envoi de documents personnalisés.</p>
+          </div>
+
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+            <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-palette text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-base text-white font-bold mb-2">Personnalisation avancée</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Ton et style alignés à votre marque, connecté à votre base de connaissances (FAQ, documents, site web), réponses adaptées à l'historique de chaque utilisateur.</p>
+          </div>
+
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+            <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-plug text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-base text-white font-bold mb-2">Intégrations</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Connexion à vos outils existants : CRM (Salesforce, HubSpot), e-commerce (Shopify), helpdesk (Zendesk). Actions en temps réel via API ou webhooks.</p>
+          </div>
+
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+            <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-table-cells-large text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-base text-white font-bold mb-2">Éléments interactifs</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Boutons, cartes, carrousels et formulaires générés directement dans la conversation, pour guider l'utilisateur sans qu'il ait à tout taper.</p>
+          </div>
+
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+            <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-shield-halved text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-base text-white font-bold mb-2">Sécurité & pilotage</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Garde-fous, conformité RGPD, transfert fluide vers un humain si besoin, tableaux de bord en temps réel pour suivre et améliorer les performances.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TARIFS -->
+    <section id="tarifs-chat" class="relative py-24 md:py-28">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl text-white font-bold mb-4">Tarifs — Capture Omnicanale</h2>
+          <p class="text-slate-400">Déploiement en 3 à 5 jours. Vos données vous appartiennent.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 items-start">
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 hover:-translate-y-1 transition-all">
+            <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2">Essentiel</div>
+            <h3 class="font-display text-xl text-white font-bold mb-4">Web & WhatsApp</h3>
+            <div class="flex items-end flex-wrap gap-x-2 gap-y-1 mb-6">
+              <span class="font-display text-4xl text-white font-bold">1 900 €</span><span class="text-slate-500 text-sm mb-1">Setup + 119 €/mois</span>
+            </div>
+            <ul class="space-y-3 text-sm text-slate-300 mb-8">
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-electric-400 mt-1 shrink-0"></i>Chatbot site web + WhatsApp</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-electric-400 mt-1 shrink-0"></i>Qualification automatique des leads</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-electric-400 mt-1 shrink-0"></i>Transmission instantanée</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-electric-400 mt-1 shrink-0"></i>Tableau de bord simple</li>
+            </ul>
+            <a href="#contact-chat" class="btn-outline block text-center rounded-xl px-6 py-3 text-sm font-semibold">Démarrer</a>
+          </div>
+          <div class="bg-slate-900 border border-brand-accent/30 rounded-2xl p-7 hover:-translate-y-1 transition-all relative shadow-2xl shadow-brand-accent/10 lg:-mt-4">
+            <div class="text-electric-400 text-xs font-bold uppercase tracking-widest mb-2 mt-2">Pro</div>
+            <h3 class="font-display text-xl text-white font-bold mb-4">Omnicanal + Suivi</h3>
+            <div class="flex items-end flex-wrap gap-x-2 gap-y-1 mb-6">
+              <span class="font-display text-4xl text-white font-bold">3 900 €</span><span class="text-slate-500 text-sm mb-1">Setup + 199 €/mois</span>
+            </div>
+            <ul class="space-y-3 text-sm text-slate-300 mb-8">
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-emerald-400 mt-1 shrink-0"></i>Tout l'Essentiel, augmenté de :</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-emerald-400 mt-1 shrink-0"></i>Instagram & Messenger inclus</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-emerald-400 mt-1 shrink-0"></i>Optimisation mensuelle</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-emerald-400 mt-1 shrink-0"></i>Support prioritaire</li>
+            </ul>
+            <a href="#contact-chat" class="btn-animated block text-center rounded-xl px-6 py-3 text-sm font-bold text-slate-950">Choisir ce plan</a>
+          </div>
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 hover:-translate-y-1 transition-all">
+            <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2">Sur-mesure</div>
+            <h3 class="font-display text-xl text-white font-bold mb-4">Écosystème complet</h3>
+            <div class="flex items-end flex-wrap gap-x-2 gap-y-1 mb-6">
+              <span class="font-display text-3xl text-white font-bold">Devis</span>
+            </div>
+            <ul class="space-y-3 text-sm text-slate-300 mb-8">
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-emerald-400 mt-1 shrink-0"></i>Intégration CRM et outils existants</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-emerald-400 mt-1 shrink-0"></i>Combinable avec nos autres modules</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-emerald-400 mt-1 shrink-0"></i>Accompagnement dédié</li>
+            </ul>
+            <a href="#contact-chat" class="btn-outline block text-center rounded-xl px-6 py-3 text-sm font-semibold">Nous contacter</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / CTA FORM -->
+    <section id="contact-chat" class="relative py-24 md:py-28 overflow-hidden">
+      <div class="relative z-10 max-w-3xl mx-auto px-5 lg:px-8">
+        <div class="reveal text-center mb-12">
+          <h2 class="font-display text-3xl md:text-4xl text-white font-bold mb-4">Combien de leads laissez-vous filer ?</h2>
+          <p class="text-slate-400 max-w-xl mx-auto">Audit gratuit de 15 minutes, sans engagement.</p>
+        </div>
+        <div class="reveal bg-slate-900/60 border border-slate-800 p-8 md:p-10 rounded-2xl relative overflow-hidden">
+          <div class="absolute top-0 left-10 right-10 h-px bg-gradient-to-r from-transparent via-electric-500/30 to-transparent"></div>
+
+          <!-- Ajoutez action="https://formspree.io/f/VOTRE_ID" method="POST" sur le <form> ci-dessous une fois votre service d'envoi configuré -->
+          <form id="form-chat" class="space-y-5">
+            <div class="hidden">
+              <label for="honeypot-chat">Ne pas remplir ce champ</label>
+              <input type="text" id="honeypot-chat" name="honeypot" tabindex="-1" autocomplete="off">
+              <input type="hidden" name="module" value="Capture Omnicanale">
+            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+              <div data-field>
+                <label class="block text-xs font-semibold text-slate-400 mb-2">Nom complet *</label>
+                <div class="relative">
+                  <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                  <input type="text" name="nom" placeholder="Jean Dupont" data-required class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+                </div>
+                <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+              </div>
+              <div data-field>
+                <label class="block text-xs font-semibold text-slate-400 mb-2">Entreprise *</label>
+                <div class="relative">
+                  <i class="fa-solid fa-building absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                  <input type="text" name="entreprise" placeholder="Nom de votre entreprise" data-required class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+                </div>
+                <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+              </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+              <div data-field>
+                <label class="block text-xs font-semibold text-slate-400 mb-2">Téléphone *</label>
+                <div class="relative">
+                  <i class="fa-solid fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                  <input type="tel" name="telephone" placeholder="06 12 34 56 78" data-required class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+                </div>
+                <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+              </div>
+              <div data-field>
+                <label class="block text-xs font-semibold text-slate-400 mb-2">Email *</label>
+                <div class="relative">
+                  <i class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                  <input type="email" name="email" placeholder="jean@exemple.com" data-required data-type="email" class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+                </div>
+                <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+              </div>
+            </div>
+            <div data-field>
+              <label class="block text-xs font-semibold text-slate-400 mb-2">Votre besoin</label>
+              <div class="relative">
+                <i class="fa-solid fa-pen absolute left-4 top-4 text-slate-600 text-sm pointer-events-none"></i>
+                <textarea rows="3" name="besoin" placeholder="Quels canaux souhaitez-vous automatiser ?" class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors"></textarea>
+              </div>
+            </div>
+            <div data-field>
+              <label class="flex items-start gap-3 text-xs text-slate-400 leading-relaxed cursor-pointer">
+                <span class="relative mt-0.5 w-4 h-4 shrink-0">
+                  <input type="checkbox" name="consent" data-required class="peer sr-only" />
+                  <span class="absolute inset-0 rounded border border-slate-700 bg-slate-950 peer-checked:bg-brand-accent peer-checked:border-brand-accent transition-colors pointer-events-none"></span>
+                  <i class="fa-solid fa-check absolute inset-0 flex items-center justify-center text-[9px] text-slate-950 opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none"></i>
+                </span>
+                <span>J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la <a href="politique-confidentialite.html" class="text-brand-accent hover:underline">politique de confidentialité</a>. *</span>
+              </label>
+              <p class="field-error hidden text-red-400 text-xs mt-1.5 ml-7"></p>
+            </div>
+            <button type="submit" class="btn-animated w-full rounded-xl px-8 py-4 text-sm font-bold text-slate-950 shadow-xl shadow-electric-500/20">
+              <span class="relative z-10 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-circle-notch fa-spin btn-spinner hidden"></i>
+                <span class="btn-label">Envoyer la demande →</span>
+              </span>
+            </button>
+            <p class="text-center text-xs text-slate-500">Réponse sous 24h · Sans engagement · Données protégées</p>
+          </form>
+
+          <!-- État de confirmation -->
+          <div id="form-success-chat" class="hidden text-center py-10">
+            <div class="w-14 h-14 mx-auto rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-5">
+              <i class="fa-solid fa-check text-emerald-400 text-xl"></i>
+            </div>
+            <h3 class="font-display text-xl text-white font-bold mb-2">Demande envoyée</h3>
+            <p class="text-slate-400 text-sm max-w-sm mx-auto">Merci ! On revient vers vous sous 24h ouvrées pour organiser votre audit gratuit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-slate-800/60 py-8">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center">
+          <span class="font-display text-white text-lg tracking-tight"><span class="text-shimmer font-bold">A</span>sop-Automation</span>
+        </div>
+        <p class="text-slate-500 text-xs text-center md:text-left">© 2026 ASOP Automation — Infrastructure d'Automatisation B2B.</p>
+        <div class="flex gap-4 text-slate-500 hover:text-white transition-colors">
+          <a href="mentions-legales.html" class="text-xs hover:text-white transition-colors">Mentions légales</a>
+          <a href="politique-confidentialite.html" class="text-xs hover:text-white transition-colors">Confidentialité</a>
+          <a href="#hero-chat" class="text-xs font-semibold uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-arrow-up"></i> Haut de page</a>
+        </div>
+      </div>
+    </footer>
+
+  </div> <!-- /CHAT SITE -->
+  <!-- ════════════════════════════════════════════════════════
+       WEB SITE : SaaS PRIVÉ D'AUTOMATISATION INTERNE (Caché par défaut) — Version minimale
+  ════════════════════════════════════════════════════════ -->
+  <div id="web-site" style="display: none;">
+
+    <header id="navbar-web" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+      <div class="hidden md:flex bg-[#050505]/95 border-b border-slate-800/60 text-xs py-2 px-5 lg:px-8 justify-between items-center backdrop-blur-md">
+        <button onclick="returnToHub()" class="text-slate-400 hover:text-white transition-colors flex items-center gap-2 font-semibold"><i class="fa-solid fa-grip text-[10px]"></i> Portail Principal</button>
+        <div class="flex gap-6">
+          <button onclick="enterSite('voice')" class="text-slate-500 hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-robot"></i> Réception Vocale</button>
+          <button onclick="enterSite('chat')" class="text-slate-500 hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-comments"></i> Capture Omnicanale</button>
+          <span class="text-indigo-400 font-semibold flex items-center gap-1.5 border-b border-indigo-400 pb-0.5"><i class="fa-solid fa-diagram-project"></i> SaaS Interne</span>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-5 lg:px-8">
+        <nav class="flex items-center justify-between h-16 md:h-[70px]">
+          <a href="javascript:void(0)" onclick="returnToHub()" class="flex items-center group" aria-label="Asop-Automation — Hub">
+            <span class="font-display text-white text-xl tracking-tight"><span class="text-shimmer font-bold">A</span>sop-Automation</span>
+          </a>
+          <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <li><a href="#fonctionnalites-web" class="nav-link">Fonctionnalités</a></li>
+            <li><a href="#tarifs-web" class="nav-link">Tarifs</a></li>
+            <li><a href="#contact-web" class="nav-link">Contact</a></li>
+          </ul>
+          <a href="#contact-web" class="hidden md:inline-flex bg-brand-accent hover:bg-red-600 transition-colors rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-accent/20">
+            <span>Demander un devis →</span>
+          </a>
+          <button id="menu-toggle-web" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none">
+            <span class="hamburger-line-web block w-6 h-0.5 bg-slate-300 transition-all duration-300"></span>
+            <span class="hamburger-line-web block w-6 h-0.5 bg-slate-300 transition-all duration-300"></span>
+            <span class="hamburger-line-web block w-6 h-0.5 bg-slate-300 transition-all duration-300"></span>
+          </button>
+        </nav>
+        <div id="mobile-menu-web" class="md:hidden overflow-hidden transition-all duration-300 max-h-0 opacity-0 bg-[#050505]">
+          <ul class="flex flex-col gap-1 pb-5 text-sm font-medium border-t border-slate-800 pt-4">
+            <li class="mb-2"><button onclick="returnToHub(); closeMobileMenuWeb()" class="w-full text-left py-2.5 px-3 rounded-lg bg-slate-800/50 text-white hover:bg-slate-800 flex items-center gap-2 transition-colors"><i class="fa-solid fa-grip text-xs text-white"></i> Retour au Portail</button></li>
+            <li><a href="#fonctionnalites-web" class="block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" onclick="closeMobileMenuWeb()">Fonctionnalités</a></li>
+            <li><a href="#tarifs-web" class="block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" onclick="closeMobileMenuWeb()">Tarifs</a></li>
+            <li><a href="#contact-web" class="block py-2.5 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" onclick="closeMobileMenuWeb()">Contact</a></li>
+            <li class="mt-3 pt-3 border-t border-slate-800/70">
+              <span class="block px-3 pb-2 text-[10px] font-bold uppercase tracking-widest text-slate-600">Autres services</span>
+            </li>
+            <li><button onclick="enterSite('voice'); closeMobileMenuWeb()" class="w-full text-left py-2 px-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-robot text-xs"></i> Réception Vocale</button></li>
+            <li><button onclick="enterSite('chat'); closeMobileMenuWeb()" class="w-full text-left py-2 px-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-comments text-xs"></i> Capture Omnicanale</button></li>
+            <li class="mt-2">
+              <a href="#contact-web" class="bg-brand-accent block rounded-lg px-5 py-3 text-center text-sm font-semibold text-white" onclick="closeMobileMenuWeb()">
+                <span>Demander un devis →</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero-web" class="relative min-h-[85vh] flex flex-col justify-center overflow-hidden noise">
+      <div class="orb w-[600px] h-[600px] bg-brand-accent/15 top-[-150px] left-[-100px]"></div>
+      <div class="orb w-[400px] h-[400px] bg-brand-accent/10 bottom-[10%] right-[-80px]"></div>
+      <div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(rgba(239, 68, 68, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(239, 68, 68, 0.03) 1px, transparent 1px); background-size: 60px 60px;"></div>
+      <div class="relative z-10 max-w-5xl mx-auto px-5 lg:px-8 pt-32 pb-20 text-center">
+        <div class="opacity-0 animate-fade-up flex justify-center mb-6">
+          <span class="inline-flex items-center gap-2 bg-brand-accent/10 border border-brand-accent/25 text-brand-accent text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full">
+            <i class="fa-solid fa-diagram-project text-brand-accent"></i> SaaS Privé d'Automatisation Interne
+          </span>
+        </div>
+        <h1 class="opacity-0 animate-fade-up-200 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.07] tracking-tight text-white mb-6">
+          Vos équipes communiquent<br/><span class="text-brand-accent">encore à la voix et au papier.</span><br/>Nous connectons vos postes.
+        </h1>
+        <p class="opacity-0 animate-fade-up-400 text-slate-400 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-12">
+          Une plateforme privée, développée sur-mesure pour votre activité, qui fait circuler l'information en temps réel entre vos postes de travail. Exemple concret pour un restaurant : le serveur envoie la commande, la cuisine la reçoit et signale son avancement, la caisse encaisse automatiquement, le gérant suit tout depuis une interface unique.
+        </p>
+        <div class="opacity-0 animate-fade-up-600 flex flex-col sm:flex-row justify-center gap-4 mb-16">
+          <a href="#tarifs-web" class="bg-brand-accent text-white rounded-xl px-8 py-4 text-base font-bold shadow-xl shadow-brand-accent/20 hover:shadow-brand-accent/40 hover:-translate-y-1 transition-all">
+            <span>Voir les tarifs</span>
+          </a>
+          <a href="#contact-web" class="btn-outline rounded-xl px-8 py-4 text-base font-semibold text-white text-center">
+            Démarrer mon projet
+          </a>
+        </div>
+        <div class="opacity-0 animate-fade-up-600 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          <div class="stat-card rounded-2xl p-5 text-center border-brand-accent/10 hover:border-brand-accent/30">
+            <div class="font-display text-3xl text-brand-accent font-bold mb-1">Temps réel</div>
+            <div class="text-slate-400 text-xs">Chaque poste voit l'information dès qu'elle est saisie</div>
+          </div>
+          <div class="stat-card rounded-2xl p-5 text-center border-brand-accent/10 hover:border-brand-accent/30">
+            <div class="font-display text-3xl text-blue-400 font-bold mb-1">Sur-mesure</div>
+            <div class="text-slate-400 text-xs">Construit autour de vos postes et de vos process réels</div>
+          </div>
+          <div class="stat-card rounded-2xl p-5 text-center border-brand-accent/10 hover:border-brand-accent/30">
+            <div class="font-display text-3xl text-white font-bold mb-1">Privé</div>
+            <div class="text-slate-400 text-xs">Une plateforme qui vous appartient, pas un outil générique</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMENT ÇA MARCHE (schéma) -->
+    <section class="relative py-16 md:py-20">
+      <div class="max-w-6xl mx-auto px-5 lg:px-8">
+        <h2 class="text-center font-display text-2xl md:text-3xl text-white font-bold mb-3">Comment ça marche</h2>
+        <p class="text-center text-slate-400 text-sm mb-12">Exemple avec un restaurant — la même logique s'applique à n'importe quel enchaînement de postes.</p>
+        <div class="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-4 md:gap-2">
+          <div class="flex-1 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 text-center">
+            <div class="w-11 h-11 mx-auto rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-user-tie text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-sm text-white font-bold mb-1.5">Le serveur saisit</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">La commande depuis sa tablette ou son poste</p>
+          </div>
+          <div class="hidden md:flex items-center text-slate-700"><i class="fa-solid fa-arrow-right text-lg"></i></div>
+          <div class="md:hidden text-slate-700"><i class="fa-solid fa-arrow-down text-lg"></i></div>
+          <div class="flex-1 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 text-center">
+            <div class="w-11 h-11 mx-auto rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-kitchen-set text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-sm text-white font-bold mb-1.5">La cuisine reçoit</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">En temps réel, et signale l'avancement</p>
+          </div>
+          <div class="hidden md:flex items-center text-slate-700"><i class="fa-solid fa-arrow-right text-lg"></i></div>
+          <div class="md:hidden text-slate-700"><i class="fa-solid fa-arrow-down text-lg"></i></div>
+          <div class="flex-1 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 text-center">
+            <div class="w-11 h-11 mx-auto rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-cash-register text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-sm text-white font-bold mb-1.5">La caisse encaisse</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">Automatiquement, sans ressaisie</p>
+          </div>
+          <div class="hidden md:flex items-center text-slate-700"><i class="fa-solid fa-arrow-right text-lg"></i></div>
+          <div class="md:hidden text-slate-700"><i class="fa-solid fa-arrow-down text-lg"></i></div>
+          <div class="flex-1 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 text-center">
+            <div class="w-11 h-11 mx-auto rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-chart-line text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-sm text-white font-bold mb-1.5">Le gérant suit tout</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">Depuis une interface de pilotage unique</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FONCTIONNALITÉS PAR POSTE (exemple restauration) -->
+    <section id="fonctionnalites-web" class="relative py-20 md:py-24 bg-slate-900/30 border-y border-slate-800/50">
+      <div class="max-w-6xl mx-auto px-5 lg:px-8">
+        <div class="text-center mb-14">
+          <span class="inline-block text-brand-accent text-xs font-bold uppercase tracking-widest mb-4">Ce qu'on sait construire</span>
+          <h2 class="font-display text-3xl md:text-4xl text-white font-bold mb-5 tracking-tight">Exemple concret : une plateforme pour la restauration.</h2>
+          <p class="text-slate-400 max-w-2xl mx-auto">Un aperçu détaillé de ce à quoi ressemble une suite de postes connectés une fois construite. La même approche s'adapte à d'autres métiers.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+            <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-user-tie text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-base text-white font-bold mb-2">Serveur</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Plan de salle interactif, prise de commande par suites, transfert de table et reprise de la dernière commande en un geste.</p>
+          </div>
+
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+            <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-kitchen-set text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-base text-white font-bold mb-2">Cuisine</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">File de préparation triée en temps réel, changement de statut au swipe, alertes sonores différenciées, messagerie vers le serveur.</p>
+          </div>
+
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+            <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-cash-register text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-base text-white font-bold mb-2">Caisse</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Split de note jusqu'à 4 personnes, paiement espèces ou carte, calcul automatique du rendu monnaie, ticket imprimable.</p>
+          </div>
+
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+            <div class="w-11 h-11 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-chart-line text-brand-accent"></i>
+            </div>
+            <h3 class="font-display text-base text-white font-bold mb-2">Gérant</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Tableau de bord avec CA en direct, comparaison au dernier service, alertes de stock, historique des journées avec export, clôture en un clic.</p>
+          </div>
+
+        </div>
+
+        <!-- Autres secteurs -->
+        <div class="mt-14 pt-10 border-t border-slate-800/60 text-center">
+          <p class="text-slate-500 text-sm mb-5">La même logique de postes connectés s'applique à d'autres activités :</p>
+          <div class="flex flex-wrap justify-center gap-3">
+            <span class="inline-flex items-center gap-2 bg-slate-900/60 border border-slate-800 rounded-full px-4 py-2 text-xs text-slate-300"><i class="fa-solid fa-store text-brand-accent"></i> Commerce & retail</span>
+            <span class="inline-flex items-center gap-2 bg-slate-900/60 border border-slate-800 rounded-full px-4 py-2 text-xs text-slate-300"><i class="fa-solid fa-industry text-brand-accent"></i> Atelier & production</span>
+            <span class="inline-flex items-center gap-2 bg-slate-900/60 border border-slate-800 rounded-full px-4 py-2 text-xs text-slate-300"><i class="fa-solid fa-stethoscope text-brand-accent"></i> Cabinets & santé</span>
+            <span class="inline-flex items-center gap-2 bg-slate-900/60 border border-slate-800 rounded-full px-4 py-2 text-xs text-slate-300"><i class="fa-solid fa-truck text-brand-accent"></i> Logistique & stock</span>
+            <span class="inline-flex items-center gap-2 bg-slate-900/60 border border-slate-800 rounded-full px-4 py-2 text-xs text-slate-300"><i class="fa-solid fa-ellipsis text-brand-accent"></i> Et autres activités sur devis</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TARIFS -->
+    <section id="tarifs-web" class="relative py-24 md:py-28">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl text-white font-bold mb-4">Tarifs — SaaS Privé d'Automatisation Interne</h2>
+          <p class="text-slate-400">Chaque plateforme est construite sur-mesure. Les prix ci-dessous sont des points de départ.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 items-start">
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 hover:-translate-y-1 transition-all">
+            <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2">Module unique</div>
+            <h3 class="font-display text-xl text-white font-bold mb-4">Un flux automatisé</h3>
+            <div class="flex items-end flex-wrap gap-x-2 gap-y-1 mb-6">
+              <span class="font-display text-4xl text-white font-bold">Dès 2 900 €</span>
+            </div>
+            <div class="text-slate-500 text-sm mb-6">+ 79 €/mois hébergement & maintenance</div>
+            <ul class="space-y-3 text-sm text-slate-300 mb-8">
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Un flux entre deux postes (ex : salle ↔ cuisine)</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Interfaces dédiées par poste</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Notifications en temps réel</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Hébergement inclus</li>
+            </ul>
+            <a href="#contact-web" class="btn-outline block text-center rounded-xl px-6 py-3 text-sm font-semibold">Démarrer</a>
+          </div>
+          <div class="bg-slate-900 border border-brand-accent/30 rounded-2xl p-7 hover:-translate-y-1 transition-all relative shadow-2xl shadow-brand-accent/10 lg:-mt-4">
+            <div class="text-brand-accent text-xs font-bold uppercase tracking-widest mb-2 mt-2">Recommandé</div>
+            <h3 class="font-display text-xl text-white font-bold mb-4">Suite complète</h3>
+            <div class="flex items-end flex-wrap gap-x-2 gap-y-1 mb-6">
+              <span class="font-display text-4xl text-white font-bold">Dès 6 900 €</span>
+            </div>
+            <div class="text-slate-500 text-sm mb-6">+ 149 €/mois hébergement & maintenance</div>
+            <ul class="space-y-3 text-sm text-slate-300 mb-8">
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-emerald-400 mt-1 shrink-0"></i>Tous les postes connectés (serveur, cuisine, caisse, gérant…)</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-emerald-400 mt-1 shrink-0"></i>Interface de pilotage pour le gérant</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-emerald-400 mt-1 shrink-0"></i>Historique et statistiques d'activité</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-emerald-400 mt-1 shrink-0"></i>Évolutions incluses la 1ère année</li>
+            </ul>
+            <a href="#contact-web" class="btn-animated block text-center rounded-xl px-6 py-3 text-sm font-bold text-slate-950">Choisir ce plan</a>
+          </div>
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 hover:-translate-y-1 transition-all">
+            <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2">Sur-mesure</div>
+            <h3 class="font-display text-xl text-white font-bold mb-4">Multi-établissements</h3>
+            <div class="flex items-end flex-wrap gap-x-2 gap-y-1 mb-6">
+              <span class="font-display text-3xl text-white font-bold">Devis</span>
+            </div>
+            <ul class="space-y-3 text-sm text-slate-300 mb-8">
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Plusieurs sites ou établissements</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Intégrations (caisse, stock, paie…)</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-brand-accent mt-1 shrink-0"></i>Accompagnement dédié</li>
+            </ul>
+            <a href="#contact-web" class="btn-outline block text-center rounded-xl px-6 py-3 text-sm font-semibold">Nous contacter</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / CTA FORM -->
+    <section id="contact-web" class="relative py-24 md:py-28 overflow-hidden">
+      <div class="relative z-10 max-w-3xl mx-auto px-5 lg:px-8">
+        <div class="reveal text-center mb-12">
+          <h2 class="font-display text-3xl md:text-4xl text-white font-bold mb-4">Décrivez-nous vos postes, on vous propose un plan.</h2>
+          <p class="text-slate-400 max-w-xl mx-auto">Échange gratuit de 20 minutes pour cartographier vos flux internes.</p>
+        </div>
+        <div class="reveal bg-slate-900/60 border border-slate-800 p-8 md:p-10 rounded-2xl relative overflow-hidden">
+          <div class="absolute top-0 left-10 right-10 h-px bg-gradient-to-r from-transparent via-electric-500/30 to-transparent"></div>
+
+          <!-- Ajoutez action="https://formspree.io/f/VOTRE_ID" method="POST" sur le <form> ci-dessous une fois votre service d'envoi configuré -->
+          <form id="form-web" class="space-y-5">
+            <div class="hidden">
+              <label for="honeypot-web">Ne pas remplir ce champ</label>
+              <input type="text" id="honeypot-web" name="honeypot" tabindex="-1" autocomplete="off">
+              <input type="hidden" name="module" value="SaaS Interne">
+            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+              <div data-field>
+                <label class="block text-xs font-semibold text-slate-400 mb-2">Nom complet *</label>
+                <div class="relative">
+                  <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                  <input type="text" name="nom" placeholder="Jean Dupont" data-required class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+                </div>
+                <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+              </div>
+              <div data-field>
+                <label class="block text-xs font-semibold text-slate-400 mb-2">Entreprise / Établissement *</label>
+                <div class="relative">
+                  <i class="fa-solid fa-building absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                  <input type="text" name="entreprise" placeholder="Ex : Restaurant Le Dupont" data-required class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+                </div>
+                <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+              </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+              <div data-field>
+                <label class="block text-xs font-semibold text-slate-400 mb-2">Secteur *</label>
+                <div class="relative">
+                  <i class="fa-solid fa-briefcase absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                  <select name="secteur" data-required class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-10 py-3.5 text-sm text-white focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors appearance-none">
+                    <option value="" disabled selected>Sélectionnez un secteur</option>
+                    <option value="restauration">Restauration / Café</option>
+                    <option value="commerce">Commerce / Retail</option>
+                    <option value="atelier">Atelier / Production</option>
+                    <option value="autre">Autre activité</option>
+                  </select>
+                  <i class="fa-solid fa-chevron-down text-slate-500 text-xs absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                </div>
+                <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+              </div>
+              <div data-field>
+                <label class="block text-xs font-semibold text-slate-400 mb-2">Téléphone *</label>
+                <div class="relative">
+                  <i class="fa-solid fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                  <input type="tel" name="telephone" placeholder="06 12 34 56 78" data-required class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+                </div>
+                <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+              </div>
+            </div>
+            <div data-field>
+              <label class="block text-xs font-semibold text-slate-400 mb-2">Email *</label>
+              <div class="relative">
+                <i class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 text-sm pointer-events-none"></i>
+                <input type="email" name="email" placeholder="jean@exemple.com" data-required data-type="email" class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors" />
+              </div>
+              <p class="field-error hidden text-red-400 text-xs mt-1.5"></p>
+            </div>
+            <div data-field>
+              <label class="block text-xs font-semibold text-slate-400 mb-2">Vos postes à connecter</label>
+              <div class="relative">
+                <i class="fa-solid fa-pen absolute left-4 top-4 text-slate-600 text-sm pointer-events-none"></i>
+                <textarea rows="3" name="postes" placeholder="Ex : serveurs, cuisine, caisse, gérant..." class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition-colors"></textarea>
+              </div>
+            </div>
+            <div data-field>
+              <label class="flex items-start gap-3 text-xs text-slate-400 leading-relaxed cursor-pointer">
+                <span class="relative mt-0.5 w-4 h-4 shrink-0">
+                  <input type="checkbox" name="consent" data-required class="peer sr-only" />
+                  <span class="absolute inset-0 rounded border border-slate-700 bg-slate-950 peer-checked:bg-brand-accent peer-checked:border-brand-accent transition-colors pointer-events-none"></span>
+                  <i class="fa-solid fa-check absolute inset-0 flex items-center justify-center text-[9px] text-slate-950 opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none"></i>
+                </span>
+                <span>J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la <a href="politique-confidentialite.html" class="text-brand-accent hover:underline">politique de confidentialité</a>. *</span>
+              </label>
+              <p class="field-error hidden text-red-400 text-xs mt-1.5 ml-7"></p>
+            </div>
+            <button type="submit" class="btn-animated w-full rounded-xl px-8 py-4 text-sm font-bold text-slate-950 shadow-xl shadow-electric-500/20">
+              <span class="relative z-10 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-circle-notch fa-spin btn-spinner hidden"></i>
+                <span class="btn-label">Envoyer la demande →</span>
+              </span>
+            </button>
+            <p class="text-center text-xs text-slate-500">Réponse sous 24h · Sans engagement · Données protégées</p>
+          </form>
+
+          <!-- État de confirmation -->
+          <div id="form-success-web" class="hidden text-center py-10">
+            <div class="w-14 h-14 mx-auto rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-5">
+              <i class="fa-solid fa-check text-emerald-400 text-xl"></i>
+            </div>
+            <h3 class="font-display text-xl text-white font-bold mb-2">Demande envoyée</h3>
+            <p class="text-slate-400 text-sm max-w-sm mx-auto">Merci ! On revient vers vous sous 24h ouvrées pour cartographier vos flux internes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-slate-800/60 py-8">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center">
+          <span class="font-display text-white text-lg tracking-tight"><span class="text-shimmer font-bold">A</span>sop-Automation</span>
+        </div>
+        <p class="text-slate-500 text-xs text-center md:text-left">© 2026 ASOP Automation — Infrastructure d'Automatisation B2B.</p>
+        <div class="flex gap-4 text-slate-500 hover:text-white transition-colors">
+          <a href="mentions-legales.html" class="text-xs hover:text-white transition-colors">Mentions légales</a>
+          <a href="politique-confidentialite.html" class="text-xs hover:text-white transition-colors">Confidentialité</a>
+          <a href="#hero-web" class="text-xs font-semibold uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-arrow-up"></i> Haut de page</a>
+        </div>
+      </div>
+    </footer>
+
+  </div> <!-- /WEB SITE -->
+  <!-- ════════════════════════════════════════════════════════
+       VANILLA JS
+  ════════════════════════════════════════════════════════ -->
+  <script>
+    // ── 0. Hub / Portal Logic ────────────────────────────────
+    window.enterSite = function(module, push = true) {
+      const sections = ['portal-hub', 'main-site', 'web-site', 'chat-site'];
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      });
+      
+      const targetId = module === 'voice' ? 'main-site' : module + '-site';
+      const target = document.getElementById(targetId);
+      
+      if (target) {
+        target.style.display = 'block';
+        target.classList.remove('fade-in');
+        void target.offsetWidth;
+        target.classList.add('fade-in');
+        
+        if (push) {
+          history.pushState({ module: module }, '', '#' + module);
+        }
+        const prevBehavior = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, 0);
+        document.documentElement.style.scrollBehavior = prevBehavior;
+      }
     };
 
-    fetch('/api/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-    .then(function(r) { return r.json().then(function(d) { return { status: r.status, body: d }; }); })
-    .then(function(result) {
-      submitBtn.classList.remove('loading');
-      submitBtn.textContent = 'Envoyer la demande';
-      if (result.status >= 200 && result.status < 300) {
-        form.style.display = 'none';
-        successEl.style.display = 'block';
-        statusEl.className = 'ghl-status success';
-        statusEl.textContent = 'Merci ! Votre demande a bien ete recue.';
-      } else {
-        statusEl.className = 'ghl-status error';
-        statusEl.textContent = 'Erreur : ' + (result.body.error || 'Impossible de contacter le serveur.');
-        submitBtn.textContent = 'Reessayer';
+    window.returnToHub = function(push = true) {
+      const sections = ['portal-hub', 'main-site', 'web-site', 'chat-site'];
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      });
+      
+      const hub = document.getElementById('portal-hub');
+      hub.style.display = 'block';
+      hub.classList.remove('fade-in');
+      void hub.offsetWidth;
+      hub.classList.add('fade-in');
+      
+      if (push) {
+        history.pushState({ module: 'hub' }, '', window.location.pathname);
       }
-    })
-    .catch(function() {
-      submitBtn.classList.remove('loading');
-      submitBtn.textContent = 'Envoyer la demande';
-      statusEl.className = 'ghl-status error';
-      statusEl.textContent = 'Erreur reseau : verifiez votre connexion.';
-    });
-  });
+      const prevBehavior = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0);
+      document.documentElement.style.scrollBehavior = prevBehavior;
+    };
 
-  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-    a.addEventListener('click', function(e) {
-      e.preventDefault();
-      var target = document.querySelector(a.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.addEventListener('popstate', (e) => {
+      if (e.state && e.state.module) {
+        if (e.state.module === 'hub') returnToHub(false);
+        else enterSite(e.state.module, false);
+      } else {
+        returnToHub(false);
+      }
     });
-  });
-})();
-</script>
+
+    // ── 1. Sticky Navbar ─────────────────────────────────────
+    const navbars = [document.getElementById('navbar'), document.getElementById('navbar-web'), document.getElementById('navbar-chat')];
+    
+    function updateNavbars() {
+      const isLight = document.body.classList.contains('light-mode');
+      navbars.forEach(navbar => {
+        if (!navbar) return;
+        if (window.scrollY > 20) {
+          navbar.style.background    = isLight ? 'rgba(255,255,255,0.95)' : 'rgba(6,11,24,0.92)';
+          navbar.style.backdropFilter = 'blur(16px)';
+          navbar.style.borderBottom  = isLight ? '1px solid rgba(0,0,0,0.08)' : '1px solid rgba(255,255,255,0.05)';
+          navbar.style.boxShadow     = isLight ? '0 4px 30px rgba(0,0,0,0.05)' : '0 4px 30px rgba(0,0,0,0.4)';
+        } else {
+          navbar.style.background    = 'transparent';
+          navbar.style.backdropFilter = 'none';
+          navbar.style.borderBottom  = 'none';
+          navbar.style.boxShadow     = 'none';
+        }
+      });
+    }
+    window.addEventListener('scroll', updateNavbars);
+
+    // ── 2. Mobile Menu ───────────────────────────────────────
+    const menuToggle    = document.getElementById('menu-toggle');
+    const mobileMenu    = document.getElementById('mobile-menu');
+    const hamburgerLines = document.querySelectorAll('.hamburger-line');
+    let menuOpen = false;
+
+    menuToggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      menuToggle.setAttribute('aria-expanded', menuOpen);
+      mobileMenu.classList.toggle('open', menuOpen);
+      if (menuOpen) {
+        hamburgerLines[0].style.transform  = 'translateY(8px) rotate(45deg)';
+        hamburgerLines[1].style.opacity    = '0';
+        hamburgerLines[2].style.transform  = 'translateY(-8px) rotate(-45deg)';
+        hamburgerLines[2].style.width      = '24px';
+        hamburgerLines[2].style.alignSelf  = 'auto';
+      } else {
+        hamburgerLines[0].style.transform = '';
+        hamburgerLines[1].style.opacity   = '';
+        hamburgerLines[2].style.transform = '';
+        hamburgerLines[2].style.width     = '';
+        hamburgerLines[2].style.alignSelf = '';
+      }
+    });
+
+    function closeMobileMenu() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', false);
+      hamburgerLines.forEach(l => { l.style.transform = ''; l.style.opacity = ''; l.style.width = ''; l.style.alignSelf = ''; });
+    }
+
+    // Mobile Menu Accueil (Hub)
+    const menuToggleHub    = document.getElementById('menu-toggle-hub');
+    const mobileMenuHub    = document.getElementById('mobile-menu-hub');
+    const hamburgerLinesHub = document.querySelectorAll('.hamburger-line-hub');
+    let menuOpenHub = false;
+
+    menuToggleHub.addEventListener('click', () => {
+      menuOpenHub = !menuOpenHub;
+      if (menuOpenHub) {
+        mobileMenuHub.style.opacity = '1';
+        mobileMenuHub.style.maxHeight = '400px';
+        hamburgerLinesHub[0].style.transform  = 'translateY(8px) rotate(45deg)';
+        hamburgerLinesHub[1].style.opacity    = '0';
+        hamburgerLinesHub[2].style.transform  = 'translateY(-8px) rotate(-45deg)';
+      } else {
+        closeMobileMenuHub();
+      }
+    });
+
+    function closeMobileMenuHub() {
+      menuOpenHub = false;
+      mobileMenuHub.style.opacity = '0';
+      mobileMenuHub.style.maxHeight = '0';
+      hamburgerLinesHub.forEach(l => { l.style.transform = ''; l.style.opacity = ''; });
+    }
+
+    // Mobile Menu Web
+    const menuToggleWeb    = document.getElementById('menu-toggle-web');
+    const mobileMenuWeb    = document.getElementById('mobile-menu-web');
+    const hamburgerLinesWeb = document.querySelectorAll('.hamburger-line-web');
+    let menuOpenWeb = false;
+
+    menuToggleWeb.addEventListener('click', () => {
+      menuOpenWeb = !menuOpenWeb;
+      if (menuOpenWeb) {
+        mobileMenuWeb.style.opacity = '1';
+        mobileMenuWeb.style.maxHeight = '400px';
+        hamburgerLinesWeb[0].style.transform  = 'translateY(8px) rotate(45deg)';
+        hamburgerLinesWeb[1].style.opacity    = '0';
+        hamburgerLinesWeb[2].style.transform  = 'translateY(-8px) rotate(-45deg)';
+      } else {
+        closeMobileMenuWeb();
+      }
+    });
+
+    function closeMobileMenuWeb() {
+      menuOpenWeb = false;
+      mobileMenuWeb.style.opacity = '0';
+      mobileMenuWeb.style.maxHeight = '0';
+      hamburgerLinesWeb.forEach(l => { l.style.transform = ''; l.style.opacity = ''; });
+    }
+
+    // Mobile Menu Chat
+    const menuToggleChat    = document.getElementById('menu-toggle-chat');
+    const mobileMenuChat    = document.getElementById('mobile-menu-chat');
+    const hamburgerLinesChat = document.querySelectorAll('.hamburger-line-chat');
+    let menuOpenChat = false;
+
+    menuToggleChat.addEventListener('click', () => {
+      menuOpenChat = !menuOpenChat;
+      if (menuOpenChat) {
+        mobileMenuChat.style.opacity = '1';
+        mobileMenuChat.style.maxHeight = '400px';
+        hamburgerLinesChat[0].style.transform  = 'translateY(8px) rotate(45deg)';
+        hamburgerLinesChat[1].style.opacity    = '0';
+        hamburgerLinesChat[2].style.transform  = 'translateY(-8px) rotate(-45deg)';
+      } else {
+        closeMobileMenuChat();
+      }
+    });
+
+    function closeMobileMenuChat() {
+      menuOpenChat = false;
+      mobileMenuChat.style.opacity = '0';
+      mobileMenuChat.style.maxHeight = '0';
+      hamburgerLinesChat.forEach(l => { l.style.transform = ''; l.style.opacity = ''; });
+    }
+
+
+    // ── 3. Reveal on scroll ──────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── 3.5 FAQ Accordion Logic ───────────────────────────────
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const body = this.nextElementSibling;
+        const icon = this.querySelector('i');
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        
+        // Fermer les autres accordéons du même parent
+        const parentList = this.closest('[id^="faq-list"]');
+        if(parentList) {
+          parentList.querySelectorAll('.faq-btn').forEach(b => {
+            b.setAttribute('aria-expanded', 'false');
+            b.nextElementSibling.style.maxHeight = null;
+            b.querySelector('i').style.transform = 'rotate(0deg)';
+          });
+        }
+        
+        if (!expanded) {
+          this.setAttribute('aria-expanded', 'true');
+          body.style.maxHeight = body.scrollHeight + "px";
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+
+    // ── Charts triggered on scroll (animate on enter) ────────
+    // Charts are already rendered; the reveal class handles
+    // the fade-in of the parent card containers.
+
+    // ── 5. Smooth Scroll & History State Preservation ────────
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          
+          // Calcul du décalage pour ne pas que la navbar masque le titre
+          const navbarHeight = 80; 
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+          
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+          
+          // Met à jour l'URL sans casser la logique du bouton "Retour"
+          const currentState = history.state || { module: 'hub' };
+          history.pushState(currentState, '', targetId);
+        }
+      });
+    });
+
+    // ── 6. Theme Toggle & Background Animation Logic ───────────────────
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = themeToggleBtn.querySelector('i');
+
+    function updateChartGrids(isLight) { }
+
+    themeToggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        const isLight = document.body.classList.contains('light-mode');
+        themeIcon.className = isLight ? 'fa-solid fa-moon text-lg' : 'fa-solid fa-sun text-xl';
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+
+        updateChartGrids(isLight);
+        updateNavbars();
+    });
+
+    // Initial load
+    document.addEventListener('DOMContentLoaded', () => {
+        const isLight = localStorage.getItem('theme') === 'light';
+        if (isLight) {
+            document.body.classList.add('light-mode');
+            themeIcon.className = 'fa-solid fa-moon text-lg';
+            // J'ai ajouté la couleur de l'orbe pour le mode clair directement dans le CSS
+            // pour que le changement soit instantané et géré par le navigateur.
+        }
+    });
+
+    // ── Formulaires de contact : validation, chargement, confirmation ──────
+    function initContactForm(formId, successId) {
+      const form = document.getElementById(formId);
+      const success = document.getElementById(successId);
+      if (!form) return;
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const btnLabel = submitBtn.querySelector('.btn-label');
+      const btnSpinner = submitBtn.querySelector('.btn-spinner');
+      const originalLabel = btnLabel ? btnLabel.textContent : '';
+
+      function fieldWrapper(field) {
+        return field.closest('[data-field]');
+      }
+
+      function showError(field, message) {
+        const wrapper = fieldWrapper(field);
+        if (!wrapper) return;
+        const errEl = wrapper.querySelector('.field-error');
+        if (errEl) { errEl.textContent = message; errEl.classList.remove('hidden'); }
+        if (field.tagName !== 'INPUT' || field.type !== 'checkbox') {
+          field.classList.add('border-red-500');
+          field.classList.remove('border-slate-800');
+        }
+      }
+
+      function clearError(field) {
+        const wrapper = fieldWrapper(field);
+        if (!wrapper) return;
+        const errEl = wrapper.querySelector('.field-error');
+        if (errEl) errEl.classList.add('hidden');
+        field.classList.remove('border-red-500');
+        field.classList.add('border-slate-800');
+      }
+
+      form.querySelectorAll('[data-required]').forEach(field => {
+        field.addEventListener('input', () => clearError(field));
+        field.addEventListener('change', () => clearError(field));
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Anti-spam : si le champ piège est rempli, on ignore silencieusement
+        const honeypot = form.querySelector('input[name="honeypot"]');
+        if (honeypot && honeypot.value.trim() !== '') return;
+
+        let valid = true;
+        let firstInvalid = null;
+
+        form.querySelectorAll('[data-required]').forEach(field => {
+          clearError(field);
+          let fieldValid = true;
+
+          if (field.type === 'checkbox') {
+            fieldValid = field.checked;
+          } else {
+            fieldValid = field.value.trim().length > 0;
+            if (fieldValid && field.dataset.type === 'email') {
+              fieldValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim());
+            }
+          }
+
+          if (!fieldValid) {
+            valid = false;
+            let message = 'Ce champ est obligatoire';
+            if (field.type === 'checkbox') message = 'Merci de cocher la case pour continuer';
+            else if (field.dataset.type === 'email') message = 'Adresse email invalide';
+            showError(field, message);
+            if (!firstInvalid) firstInvalid = field;
+          }
+        });
+
+        if (!valid) {
+          if (firstInvalid) firstInvalid.focus({ preventScroll: false });
+          return;
+        }
+
+        // État de chargement
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        if (btnSpinner) btnSpinner.classList.remove('hidden');
+        if (btnLabel) btnLabel.textContent = 'Envoi en cours...';
+
+        function showSuccess() {
+          form.style.display = 'none';
+          if (success) success.classList.remove('hidden');
+        }
+
+        function resetButton() {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+          if (btnSpinner) btnSpinner.classList.add('hidden');
+          if (btnLabel) btnLabel.textContent = originalLabel;
+        }
+
+        const actionUrl = form.getAttribute('action');
+
+        if (actionUrl) {
+          // Un service d'envoi (Formspree, Web3Forms...) est configuré
+          fetch(actionUrl, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          })
+            .then(res => {
+              if (res.ok) { showSuccess(); }
+              else { throw new Error('send-failed'); }
+            })
+            .catch(() => {
+              resetButton();
+              alert("Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous contacter directement par email.");
+            });
+        } else {
+          // Aucun service d'envoi configuré pour le moment : confirmation visuelle seule
+          setTimeout(showSuccess, 600);
+        }
+      });
+    }
+
+    initContactForm('form-voice', 'form-success-voice');
+    initContactForm('form-chat', 'form-success-chat');
+    initContactForm('form-web', 'form-success-web');
+
+  </script>
+
+  <!-- GoHighLevel — External Tracking (capture automatique des formulaires) -->
+  <script
+    src="https://link.msgsndr.com/js/external-tracking.js"
+    data-tracking-id="tk_e2ea807511aa4d2eb369a521ff17e253">
+  </script>
+
+  <!-- GHL Chat Widget -->
+  <script src="https://app.gohighlevel.com/chat-widget/script.js?locationId=QfLnqqz1mgSKcXLkKK5c" defer></script>
+
+  <script>
+    initContactForm('form-hub', 'form-success-hub');
+  </script>
 
 </body>
 </html>
