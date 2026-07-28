@@ -16,20 +16,30 @@ export default async function handler(req, res) {
   };
 
   try {
-    const { firstName, lastName, email, phone, service, message } = req.body;
+    let data = req.body;
+    // If body is a string (e.g. from some middleware), parse it
+    if (typeof data === 'string') data = JSON.parse(data);
 
-    if (!firstName || !email) {
-      return res.status(400).json({ error: 'firstName and email are required' });
+    const { nom, entreprise, telephone, email, message } = data;
+
+    if (!nom || !email) {
+      return res.status(400).json({ error: 'nom and email are required' });
     }
+
+    // Split full name into first/last
+    const nameParts = nom.trim().split(' ');
+    const firstName = nameParts[0] || '';
+    const lastName = nameParts.slice(1).join(' ') || '';
 
     // 1. Create contact
     const contactPayload = {
       locationId: GHL_LOCATION_ID,
       firstName,
       lastName: lastName || '',
-      email
+      email,
+      companyName: entreprise || ''
     };
-    if (phone) contactPayload.phone = phone;
+    if (telephone) contactPayload.phone = telephone;
 
     const contactRes = await fetch('https://services.leadconnectorhq.com/contacts/', {
       method: 'POST',

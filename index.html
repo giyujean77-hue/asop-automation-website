@@ -2098,11 +2098,18 @@
         const actionUrl = form.getAttribute('action');
 
         if (actionUrl) {
-          // Un service d'envoi (Formspree, Web3Forms...) est configuré
+          const fd = new FormData(form);
+          const payload = {
+            nom: fd.get('nom') || '',
+            entreprise: fd.get('entreprise') || '',
+            telephone: fd.get('telephone') || '',
+            email: fd.get('email') || '',
+            message: fd.get('besoin') || ''
+          };
           fetch(actionUrl, {
             method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
           })
             .then(res => {
               if (res.ok) { showSuccess(); }
