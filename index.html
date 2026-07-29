@@ -375,61 +375,81 @@
     body.light-mode .faq-item:hover { border-color: rgba(0,0,0,0.15) !important; }
 
     /* ── Carousel ── */
+    .carousel-stage {
+      position: relative;
+      padding: 40px 0;
+      background: radial-gradient(ellipse at center, rgba(239,68,68,0.05) 0%, transparent 70%);
+    }
+    body.light-mode .carousel-stage {
+      background: radial-gradient(ellipse at center, rgba(239,68,68,0.03) 0%, transparent 70%);
+    }
+    .carousel-stage-inner {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      padding: 20px;
+    }
     .carousel-wrap {
       position: relative;
-      max-width: 480px;
+      width: 100%;
+      max-width: 1200px;
       margin: 0 auto;
-      overflow: hidden;
-      border-radius: 1rem;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: #121212;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    }
-    body.light-mode .carousel-wrap {
-      background: #FFFFFF;
-      border-color: rgba(0,0,0,0.08);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
     }
     .carousel-track {
       display: flex;
       transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       will-change: transform;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.5);
     }
-    .carousel-slide { min-width: 100%; flex-shrink: 0; }
-    .carousel-slide img { width: 100%; height: auto; display: block; }
+    .carousel-slide {
+      min-width: 100%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-slide img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
     .carousel-btn {
       position: absolute;
       top: 50%; transform: translateY(-50%);
-      width: 44px; height: 44px;
+      width: 52px; height: 52px;
       border-radius: 50%;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.12);
       color: #fff;
-      font-size: 1rem;
+      font-size: 1.15rem;
       display: flex; align-items: center; justify-content: center;
       cursor: pointer;
       transition: all 0.25s ease;
       z-index: 10;
-      opacity: 0;
+      opacity: 0.8;
     }
-    .carousel-wrap:hover .carousel-btn { opacity: 1; }
     .carousel-btn:hover {
-      background: rgba(239,68,68,0.8);
+      background: rgba(239,68,68,0.85);
       border-color: rgba(239,68,68,0.5);
       transform: translateY(-50%) scale(1.1);
     }
-    .carousel-prev { left: 12px; }
-    .carousel-next { right: 12px; }
+    .carousel-prev { left: 16px; }
+    .carousel-next { right: 16px; }
     .carousel-dots {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 8px;
-      padding: 16px 16px 20px;
+      gap: 10px;
+      padding: 0;
     }
     .carousel-dot {
-      width: 8px; height: 8px;
+      width: 10px; height: 10px;
       border-radius: 50%;
       background: rgba(255,255,255,0.2);
       border: none; cursor: pointer;
@@ -439,17 +459,21 @@
     body.light-mode .carousel-dot { background: rgba(0,0,0,0.15); }
     .carousel-dot.active {
       background: #ef4444;
-      width: 28px;
-      border-radius: 4px;
+      width: 32px;
+      border-radius: 5px;
     }
     .carousel-dot:hover { background: rgba(239,68,68,0.6); }
     body.light-mode .carousel-dot:hover { background: rgba(239,68,68,0.6); }
     body.light-mode .carousel-dot.active { background: #ef4444; }
-    @media (max-width: 640px) {
-      .carousel-wrap { max-width: 100%; border-radius: 0.75rem; }
-      .carousel-btn { width: 36px; height: 36px; font-size: 0.8rem; opacity: 0.7; }
+    @media (max-width: 768px) {
+      .carousel-stage-inner { min-height: 60vh; padding: 12px; gap: 16px; }
+      .carousel-btn { width: 40px; height: 40px; font-size: 0.9rem; opacity: 0.7; }
       .carousel-prev { left: 8px; }
       .carousel-next { right: 8px; }
+      .carousel-dots { gap: 8px; }
+      .carousel-dot { width: 8px; height: 8px; }
+      .carousel-dot.active { width: 24px; }
+      .carousel-slide img { max-height: 60vh; max-width: 98%; }
     }
   </style>
 </head>
@@ -851,23 +875,25 @@
     </div>
   </section>
 
-  <!-- PRÉSENTATION (Carousel) -->
-  <section id="pres-voice" class="relative py-16 md:py-20 bg-slate-900/30 border-y border-slate-800/50">
-    <div class="max-w-5xl mx-auto px-5 lg:px-8">
-      <div class="reveal text-center mb-10">
+  <!-- PRÉSENTATION PLEIN ÉCRAN (Carousel) -->
+  <section id="pres-voice" class="relative bg-slate-900/30 border-y border-slate-800/50">
+    <div class="carousel-stage">
+      <div class="reveal text-center pt-16 md:pt-20 pb-4 px-5">
         <span class="inline-block text-brand-accent text-xs font-bold uppercase tracking-widest mb-3">Présentation</span>
         <h2 class="font-display text-2xl md:text-3xl text-white font-bold tracking-tight">Découvrez l'offre Réception Vocale</h2>
       </div>
-      <div class="reveal carousel-wrap" data-carousel="voice">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="assets/img/presentations/voice/slide-01.png" alt="Slide 1" loading="lazy" /></div>
-          <div class="carousel-slide"><img src="assets/img/presentations/voice/slide-02.png" alt="Slide 2" loading="lazy" /></div>
-          <div class="carousel-slide"><img src="assets/img/presentations/voice/slide-03.png" alt="Slide 3" loading="lazy" /></div>
-          <div class="carousel-slide"><img src="assets/img/presentations/voice/slide-04.png" alt="Slide 4" loading="lazy" /></div>
-          <div class="carousel-slide"><img src="assets/img/presentations/voice/slide-05.png" alt="Slide 5" loading="lazy" /></div>
+      <div class="carousel-stage-inner">
+        <div class="reveal carousel-wrap" data-carousel="voice">
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="assets/img/presentations/voice/slide-01.png" alt="Slide 1" loading="lazy" /></div>
+            <div class="carousel-slide"><img src="assets/img/presentations/voice/slide-02.png" alt="Slide 2" loading="lazy" /></div>
+            <div class="carousel-slide"><img src="assets/img/presentations/voice/slide-03.png" alt="Slide 3" loading="lazy" /></div>
+            <div class="carousel-slide"><img src="assets/img/presentations/voice/slide-04.png" alt="Slide 4" loading="lazy" /></div>
+            <div class="carousel-slide"><img src="assets/img/presentations/voice/slide-05.png" alt="Slide 5" loading="lazy" /></div>
+          </div>
+          <button class="carousel-btn carousel-prev" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn carousel-next" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
-        <button class="carousel-btn carousel-prev" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="carousel-btn carousel-next" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button>
         <div class="carousel-dots"></div>
       </div>
     </div>
@@ -1218,23 +1244,25 @@
       </div>
     </section>
 
-    <!-- PRÉSENTATION (Carousel) -->
-    <section id="pres-chat" class="relative py-16 md:py-20 bg-slate-900/30 border-y border-slate-800/50">
-      <div class="max-w-5xl mx-auto px-5 lg:px-8">
-        <div class="reveal text-center mb-10">
+    <!-- PRÉSENTATION PLEIN ÉCRAN (Carousel) -->
+    <section id="pres-chat" class="relative bg-slate-900/30 border-y border-slate-800/50">
+      <div class="carousel-stage">
+        <div class="reveal text-center pt-16 md:pt-20 pb-4 px-5">
           <span class="inline-block text-brand-accent text-xs font-bold uppercase tracking-widest mb-3">Présentation</span>
           <h2 class="font-display text-2xl md:text-3xl text-white font-bold tracking-tight">Découvrez l'offre Capture Omnicanale</h2>
         </div>
-        <div class="reveal carousel-wrap" data-carousel="chat">
-          <div class="carousel-track">
-            <div class="carousel-slide"><img src="assets/img/presentations/chat/slide-01.png" alt="Slide 1" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/img/presentations/chat/slide-02.png" alt="Slide 2" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/img/presentations/chat/slide-03.png" alt="Slide 3" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/img/presentations/chat/slide-04.png" alt="Slide 4" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/img/presentations/chat/slide-05.png" alt="Slide 5" loading="lazy" /></div>
+        <div class="carousel-stage-inner">
+          <div class="reveal carousel-wrap" data-carousel="chat">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="assets/img/presentations/chat/slide-01.png" alt="Slide 1" loading="lazy" /></div>
+              <div class="carousel-slide"><img src="assets/img/presentations/chat/slide-02.png" alt="Slide 2" loading="lazy" /></div>
+              <div class="carousel-slide"><img src="assets/img/presentations/chat/slide-03.png" alt="Slide 3" loading="lazy" /></div>
+              <div class="carousel-slide"><img src="assets/img/presentations/chat/slide-04.png" alt="Slide 4" loading="lazy" /></div>
+              <div class="carousel-slide"><img src="assets/img/presentations/chat/slide-05.png" alt="Slide 5" loading="lazy" /></div>
+            </div>
+            <button class="carousel-btn carousel-prev" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-btn carousel-next" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button>
           </div>
-          <button class="carousel-btn carousel-prev" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn carousel-next" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="carousel-dots"></div>
         </div>
       </div>
@@ -1603,23 +1631,25 @@
       </div>
     </section>
 
-    <!-- PRÉSENTATION (Carousel) -->
-    <section id="pres-web" class="relative py-16 md:py-20 bg-slate-900/30 border-y border-slate-800/50">
-      <div class="max-w-5xl mx-auto px-5 lg:px-8">
-        <div class="reveal text-center mb-10">
+    <!-- PRÉSENTATION PLEIN ÉCRAN (Carousel) -->
+    <section id="pres-web" class="relative bg-slate-900/30 border-y border-slate-800/50">
+      <div class="carousel-stage">
+        <div class="reveal text-center pt-16 md:pt-20 pb-4 px-5">
           <span class="inline-block text-brand-accent text-xs font-bold uppercase tracking-widest mb-3">Présentation</span>
           <h2 class="font-display text-2xl md:text-3xl text-white font-bold tracking-tight">Découvrez l'offre SaaS Privé</h2>
         </div>
-        <div class="reveal carousel-wrap" data-carousel="web">
-          <div class="carousel-track">
-            <div class="carousel-slide"><img src="assets/img/presentations/web/slide-01.png" alt="Slide 1" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/img/presentations/web/slide-02.png" alt="Slide 2" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/img/presentations/web/slide-03.png" alt="Slide 3" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/img/presentations/web/slide-04.png" alt="Slide 4" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/img/presentations/web/slide-05.png" alt="Slide 5" loading="lazy" /></div>
+        <div class="carousel-stage-inner">
+          <div class="reveal carousel-wrap" data-carousel="web">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="assets/img/presentations/web/slide-01.png" alt="Slide 1" loading="lazy" /></div>
+              <div class="carousel-slide"><img src="assets/img/presentations/web/slide-02.png" alt="Slide 2" loading="lazy" /></div>
+              <div class="carousel-slide"><img src="assets/img/presentations/web/slide-03.png" alt="Slide 3" loading="lazy" /></div>
+              <div class="carousel-slide"><img src="assets/img/presentations/web/slide-04.png" alt="Slide 4" loading="lazy" /></div>
+              <div class="carousel-slide"><img src="assets/img/presentations/web/slide-05.png" alt="Slide 5" loading="lazy" /></div>
+            </div>
+            <button class="carousel-btn carousel-prev" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-btn carousel-next" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button>
           </div>
-          <button class="carousel-btn carousel-prev" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn carousel-next" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="carousel-dots"></div>
         </div>
       </div>
