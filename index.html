@@ -373,108 +373,6 @@
     body.light-mode #theme-toggle { background-color: #FFFFFF !important; color: #0F172A !important; border-color: rgba(0,0,0,0.1) !important; box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important; }
     body.light-mode .faq-item { background: #FFFFFF !important; border-color: rgba(0,0,0,0.08) !important; }
     body.light-mode .faq-item:hover { border-color: rgba(0,0,0,0.15) !important; }
-
-    /* ── Carousel ── */
-    .carousel-stage {
-      position: relative;
-      padding: 40px 0;
-      background: radial-gradient(ellipse at center, rgba(239,68,68,0.05) 0%, transparent 70%);
-    }
-    body.light-mode .carousel-stage {
-      background: radial-gradient(ellipse at center, rgba(239,68,68,0.03) 0%, transparent 70%);
-    }
-    .carousel-stage-inner {
-      min-height: 85vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 24px;
-      padding: 20px;
-    }
-    .carousel-wrap {
-      position: relative;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      will-change: transform;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 40px rgba(0,0,0,0.5);
-    }
-    .carousel-slide {
-      min-width: 100%;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .carousel-slide img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-    .carousel-btn {
-      position: absolute;
-      top: 50%; transform: translateY(-50%);
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #fff;
-      font-size: 1.15rem;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      z-index: 10;
-      opacity: 0.8;
-    }
-    .carousel-btn:hover {
-      background: rgba(239,68,68,0.85);
-      border-color: rgba(239,68,68,0.5);
-      transform: translateY(-50%) scale(1.1);
-    }
-    .carousel-prev { left: 16px; }
-    .carousel-next { right: 16px; }
-    .carousel-dots {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      padding: 0;
-    }
-    .carousel-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-      border: none; cursor: pointer;
-      transition: all 0.3s ease;
-      padding: 0;
-    }
-    body.light-mode .carousel-dot { background: rgba(0,0,0,0.15); }
-    .carousel-dot.active {
-      background: #ef4444;
-      width: 32px;
-      border-radius: 5px;
-    }
-    .carousel-dot:hover { background: rgba(239,68,68,0.6); }
-    body.light-mode .carousel-dot:hover { background: rgba(239,68,68,0.6); }
-    body.light-mode .carousel-dot.active { background: #ef4444; }
-    @media (max-width: 768px) {
-      .carousel-stage-inner { min-height: 60vh; padding: 12px; gap: 16px; }
-      .carousel-btn { width: 40px; height: 40px; font-size: 0.9rem; opacity: 0.7; }
-      .carousel-prev { left: 8px; }
-      .carousel-next { right: 8px; }
-      .carousel-dots { gap: 8px; }
-      .carousel-dot { width: 8px; height: 8px; }
-      .carousel-dot.active { width: 24px; }
-      .carousel-slide img { max-height: 60vh; max-width: 98%; }
-    }
   </style>
 </head>
 
@@ -875,30 +773,6 @@
     </div>
   </section>
 
-  <!-- PRÉSENTATION PLEIN ÉCRAN (Carousel) -->
-  <section id="pres-voice" class="relative bg-slate-900/30 border-y border-slate-800/50">
-    <div class="carousel-stage">
-      <div class="reveal text-center pt-16 md:pt-20 pb-4 px-5">
-        <span class="inline-block text-brand-accent text-xs font-bold uppercase tracking-widest mb-3">Présentation</span>
-        <h2 class="font-display text-2xl md:text-3xl text-white font-bold tracking-tight">Découvrez l'offre Réception Vocale</h2>
-      </div>
-      <div class="carousel-stage-inner">
-        <div class="reveal carousel-wrap" data-carousel="voice">
-          <div class="carousel-track">
-            <div class="carousel-slide"><img src="assets/img/presentations/voice/slide-01.png" alt="Slide 1" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/img/presentations/voice/slide-02.png" alt="Slide 2" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/img/presentations/voice/slide-03.png" alt="Slide 3" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/img/presentations/voice/slide-04.png" alt="Slide 4" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/img/presentations/voice/slide-05.png" alt="Slide 5" loading="lazy" /></div>
-          </div>
-          <button class="carousel-btn carousel-prev" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn carousel-next" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button>
-        </div>
-        <div class="carousel-dots"></div>
-      </div>
-    </div>
-  </section>
-
   <!-- FONCTIONNALITÉS -->
   <section id="fonctionnalites" class="relative py-20 md:py-24 bg-slate-900/30 border-y border-slate-800/50">
     <div class="max-w-6xl mx-auto px-5 lg:px-8">
@@ -1240,30 +1114,6 @@
             <h3 class="font-display text-sm text-white font-bold mb-1.5">Transmission</h3>
             <p class="text-slate-400 text-xs leading-relaxed">Le lead qualifié arrive directement chez vous</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRÉSENTATION PLEIN ÉCRAN (Carousel) -->
-    <section id="pres-chat" class="relative bg-slate-900/30 border-y border-slate-800/50">
-      <div class="carousel-stage">
-        <div class="reveal text-center pt-16 md:pt-20 pb-4 px-5">
-          <span class="inline-block text-brand-accent text-xs font-bold uppercase tracking-widest mb-3">Présentation</span>
-          <h2 class="font-display text-2xl md:text-3xl text-white font-bold tracking-tight">Découvrez l'offre Capture Omnicanale</h2>
-        </div>
-        <div class="carousel-stage-inner">
-          <div class="reveal carousel-wrap" data-carousel="chat">
-            <div class="carousel-track">
-              <div class="carousel-slide"><img src="assets/img/presentations/chat/slide-01.png" alt="Slide 1" loading="lazy" /></div>
-              <div class="carousel-slide"><img src="assets/img/presentations/chat/slide-02.png" alt="Slide 2" loading="lazy" /></div>
-              <div class="carousel-slide"><img src="assets/img/presentations/chat/slide-03.png" alt="Slide 3" loading="lazy" /></div>
-              <div class="carousel-slide"><img src="assets/img/presentations/chat/slide-04.png" alt="Slide 4" loading="lazy" /></div>
-              <div class="carousel-slide"><img src="assets/img/presentations/chat/slide-05.png" alt="Slide 5" loading="lazy" /></div>
-            </div>
-            <button class="carousel-btn carousel-prev" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="carousel-btn carousel-next" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button>
-          </div>
-          <div class="carousel-dots"></div>
         </div>
       </div>
     </section>
@@ -1631,31 +1481,7 @@
       </div>
     </section>
 
-    <!-- PRÉSENTATION PLEIN ÉCRAN (Carousel) -->
-    <section id="pres-web" class="relative bg-slate-900/30 border-y border-slate-800/50">
-      <div class="carousel-stage">
-        <div class="reveal text-center pt-16 md:pt-20 pb-4 px-5">
-          <span class="inline-block text-brand-accent text-xs font-bold uppercase tracking-widest mb-3">Présentation</span>
-          <h2 class="font-display text-2xl md:text-3xl text-white font-bold tracking-tight">Découvrez l'offre SaaS Privé</h2>
-        </div>
-        <div class="carousel-stage-inner">
-          <div class="reveal carousel-wrap" data-carousel="web">
-            <div class="carousel-track">
-              <div class="carousel-slide"><img src="assets/img/presentations/web/slide-01.png" alt="Slide 1" loading="lazy" /></div>
-              <div class="carousel-slide"><img src="assets/img/presentations/web/slide-02.png" alt="Slide 2" loading="lazy" /></div>
-              <div class="carousel-slide"><img src="assets/img/presentations/web/slide-03.png" alt="Slide 3" loading="lazy" /></div>
-              <div class="carousel-slide"><img src="assets/img/presentations/web/slide-04.png" alt="Slide 4" loading="lazy" /></div>
-              <div class="carousel-slide"><img src="assets/img/presentations/web/slide-05.png" alt="Slide 5" loading="lazy" /></div>
-            </div>
-            <button class="carousel-btn carousel-prev" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="carousel-btn carousel-next" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button>
-          </div>
-          <div class="carousel-dots"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FONCTIONNALITÉS -->
+    <!-- FONCTIONNALITÉS PAR POSTE (exemple restauration) -->
     <section id="fonctionnalites-web" class="relative py-20 md:py-24 bg-slate-900/30 border-y border-slate-800/50">
       <div class="max-w-6xl mx-auto px-5 lg:px-8">
         <div class="text-center mb-14">
@@ -2306,61 +2132,6 @@
 
   </script>
 
-  <!-- ── Carousel Initialization ────────────────────────────── -->
-  <script>
-    function initCarousel(container) {
-      const track = container.querySelector('.carousel-track');
-      const slides = container.querySelectorAll('.carousel-slide');
-      const prevBtn = container.querySelector('.carousel-prev');
-      const nextBtn = container.querySelector('.carousel-next');
-      const dotsWrap = container.querySelector('.carousel-dots') || container.parentElement.querySelector('.carousel-dots');
-      if (!track || !slides.length || !dotsWrap) return;
-
-      let current = 0;
-      let timer = null;
-      const delay = 4500;
-
-      slides.forEach((_, i) => {
-        const btn = document.createElement('button');
-        btn.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-        btn.setAttribute('aria-label', 'Slide ' + (i + 1));
-        btn.addEventListener('click', () => goTo(i));
-        dotsWrap.appendChild(btn);
-      });
-
-      function goTo(i) {
-        current = i;
-        track.style.transform = 'translateX(-' + (current * 100) + '%)';
-        dotsWrap.querySelectorAll('.carousel-dot').forEach((d, j) => d.classList.toggle('active', j === current));
-        reset();
-      }
-
-      function next() { goTo((current + 1) % slides.length); }
-      function prev() { goTo((current - 1 + slides.length) % slides.length); }
-      function start() { stop(); timer = setInterval(next, delay); }
-      function stop() { if (timer) { clearInterval(timer); timer = null; } }
-      function reset() { start(); }
-
-      prevBtn.addEventListener('click', prev);
-      nextBtn.addEventListener('click', next);
-      container.addEventListener('mouseenter', stop);
-      container.addEventListener('mouseleave', start);
-
-      let tx = 0;
-      container.addEventListener('touchstart', function(e) { tx = e.changedTouches[0].screenX; }, { passive: true });
-      container.addEventListener('touchend', function(e) {
-        var diff = tx - e.changedTouches[0].screenX;
-        if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
-      }, { passive: true });
-
-      start();
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.carousel-wrap').forEach(initCarousel);
-    });
-  </script>
-
   <!-- GoHighLevel — External Tracking (capture automatique des formulaires) -->
   <script
     src="https://link.msgsndr.com/js/external-tracking.js"
@@ -2376,3 +2147,4 @@
 
 </body>
 </html>
+
