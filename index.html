@@ -2313,8 +2313,8 @@
       const slides = container.querySelectorAll('.carousel-slide');
       const prevBtn = container.querySelector('.carousel-prev');
       const nextBtn = container.querySelector('.carousel-next');
-      const dotsWrap = container.querySelector('.carousel-dots');
-      if (!track || !slides.length) return;
+      const dotsWrap = container.querySelector('.carousel-dots') || container.parentElement.querySelector('.carousel-dots');
+      if (!track || !slides.length || !dotsWrap) return;
 
       let current = 0;
       let timer = null;
